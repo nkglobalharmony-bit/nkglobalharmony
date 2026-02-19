@@ -12,7 +12,7 @@ const Navbar = () => {
     <header className="border-b border-border">
       <div className="container flex items-center justify-between py-5">
         <Link to="/" className="flex items-center">
-          <img src={logo} alt="NK Global Harmony" className="h-10" />
+          <img src={logo} alt="NK Global Harmony" className="h-14" />
         </Link>
 
         {/* Desktop nav */}
