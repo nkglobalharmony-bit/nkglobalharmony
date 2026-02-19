@@ -1,4 +1,5 @@
 import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const categories = [
   {
@@ -38,12 +39,21 @@ const FeaturedCategories = () => (
           <p className="text-foreground/70 max-w-xl leading-relaxed mb-6">
             {cat.description}
           </p>
-          <a
-            href="#"
-            className="inline-flex items-center gap-2 text-sm font-sans tracking-wide text-foreground hover:text-muted-foreground transition-colors"
-          >
-            View Category <ArrowRight size={16} />
-          </a>
+          {cat.id === "apparel" ? (
+            <Link
+              to="/apparel"
+              className="inline-flex items-center gap-2 text-sm font-sans tracking-wide text-foreground hover:text-muted-foreground transition-colors"
+            >
+              View Category <ArrowRight size={16} />
+            </Link>
+          ) : (
+            <a
+              href="#"
+              className="inline-flex items-center gap-2 text-sm font-sans tracking-wide text-foreground hover:text-muted-foreground transition-colors"
+            >
+              View Category <ArrowRight size={16} />
+            </a>
+          )}
         </div>
       </div>
     ))}

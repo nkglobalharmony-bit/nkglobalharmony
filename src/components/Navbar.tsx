@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const navItems = ["Apparel", "Jewellery", "Educational Systems", "Request a Quote"];
 
@@ -18,12 +19,15 @@ const Navbar = () => {
           <ul className="flex items-center gap-8 font-sans text-sm tracking-wide">
             {navItems.map((item) => (
               <li key={item}>
-                <a
-                  href={`#${item.toLowerCase().replace(/\s+/g, "-")}`}
-                  className="text-muted-foreground hover:text-foreground transition-colors"
-                >
-                  {item}
-                </a>
+                {item === "Apparel" ? (
+                  <Link to="/apparel" className="text-muted-foreground hover:text-foreground transition-colors">
+                    {item}
+                  </Link>
+                ) : (
+                  <a href={`#${item.toLowerCase().replace(/\s+/g, "-")}`} className="text-muted-foreground hover:text-foreground transition-colors">
+                    {item}
+                  </a>
+                )}
               </li>
             ))}
           </ul>
@@ -45,13 +49,15 @@ const Navbar = () => {
           <ul className="space-y-4 font-sans text-sm tracking-wide">
             {navItems.map((item) => (
               <li key={item}>
-                <a
-                  href={`#${item.toLowerCase().replace(/\s+/g, "-")}`}
-                  className="text-muted-foreground hover:text-foreground transition-colors"
-                  onClick={() => setOpen(false)}
-                >
-                  {item}
-                </a>
+                {item === "Apparel" ? (
+                  <Link to="/apparel" className="text-muted-foreground hover:text-foreground transition-colors" onClick={() => setOpen(false)}>
+                    {item}
+                  </Link>
+                ) : (
+                  <a href={`#${item.toLowerCase().replace(/\s+/g, "-")}`} className="text-muted-foreground hover:text-foreground transition-colors" onClick={() => setOpen(false)}>
+                    {item}
+                  </a>
+                )}
               </li>
             ))}
           </ul>
