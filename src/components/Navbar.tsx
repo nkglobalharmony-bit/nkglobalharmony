@@ -9,10 +9,10 @@ const Navbar = () => {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="border-b border-border">
-      <div className="container flex items-center justify-between py-5">
+    <header className="border-b border-border bg-background/95 backdrop-blur-sm shadow-sm sticky top-0 z-50">
+      <div className="container flex items-center justify-between py-6">
         <Link to="/" className="flex items-center">
-          <img src={logo} alt="NK Global Harmony" className="h-20" />
+          <img src={logo} alt="NK Global Harmony" className="h-28" />
         </Link>
 
         {/* Desktop nav */}
