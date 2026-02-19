@@ -1,4 +1,5 @@
 import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const categories = ["Apparel", "Jewellery", "Educational Systems"];
 
@@ -13,15 +14,19 @@ const Hero = () => (
         across categories — connecting manufacturers to markets worldwide.
       </p>
       <div className="flex flex-wrap gap-3 mb-10">
-        {categories.map((cat) => (
-          <a
-            key={cat}
-            href={`#${cat.toLowerCase().replace(/\s+/g, "-")}`}
-            className="border border-border px-5 py-2.5 text-sm font-sans tracking-wide hover:bg-foreground hover:text-background transition-colors"
-          >
-            {cat}
-          </a>
-        ))}
+        {categories.map((cat) => {
+          const isApparel = cat === "Apparel";
+          const className = "border border-border px-5 py-2.5 text-sm font-sans tracking-wide hover:bg-foreground hover:text-background transition-colors";
+          return isApparel ? (
+            <Link key={cat} to="/apparel" className={className}>
+              {cat}
+            </Link>
+          ) : (
+            <a key={cat} href={`#${cat.toLowerCase().replace(/\s+/g, "-")}`} className={className}>
+              {cat}
+            </a>
+          );
+        })}
       </div>
       <a
         href="#apparel"
