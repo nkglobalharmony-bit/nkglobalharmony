@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Link } from "react-router-dom";
+import logo from "@/assets/NK_logo.png";
 
 const navItems = ["Apparel", "Jewellery", "Educational Systems", "Request a Quote"];
 
@@ -10,9 +11,9 @@ const Navbar = () => {
   return (
     <header className="border-b border-border">
       <div className="container flex items-center justify-between py-5">
-        <a href="#" className="font-serif text-xl font-semibold tracking-tight">
-          NK Global
-        </a>
+        <Link to="/" className="flex items-center">
+          <img src={logo} alt="NK Global Harmony" className="h-10" />
+        </Link>
 
         {/* Desktop nav */}
         <nav className="hidden md:block">
