@@ -20,11 +20,21 @@ const apparelSubcategories = [
   "Organic & Sustainable Fabric Options",
 ];
 
-const navItems = ["Jewellery", "Educational Systems", "Request a Quote"];
+const jewellerySubcategories = [
+  "925 Sterling Silver Jewellery",
+  "Gold & Platinum Jewellery",
+  "Trend-Driven Fashion Jewellery (Mass Market & Retail)",
+  "Lab-Grown Diamonds & Gemstones",
+  "Private Label Jewellery Production",
+  "Custom Design Development & Sampling Support",
+];
+
+const navItems = ["Educational Systems", "Request a Quote"];
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   const [apparelOpen, setApparelOpen] = useState(false);
+  const [jewelleryOpen, setJewelleryOpen] = useState(false);
 
   return (
     <header className="border-b border-border bg-background/95 backdrop-blur-sm shadow-sm sticky top-0 z-50">
@@ -54,6 +64,30 @@ const Navbar = () => {
                       >
                         {sub}
                       </Link>
+                    </DropdownMenuItem>
+                  ))}
+                </DropdownMenuContent>
+              </DropdownMenu>
+            </li>
+
+            {/* Jewellery with dropdown */}
+            <li>
+              <DropdownMenu>
+                <DropdownMenuTrigger className="flex items-center gap-1 text-muted-foreground hover:text-foreground transition-colors outline-none">
+                  Jewellery <ChevronDown size={14} />
+                </DropdownMenuTrigger>
+                <DropdownMenuContent
+                  align="start"
+                  className="bg-background border border-border shadow-md z-50 min-w-[280px]"
+                >
+                  {jewellerySubcategories.map((sub) => (
+                    <DropdownMenuItem key={sub} asChild>
+                      <a
+                        href="#jewellery"
+                        className="cursor-pointer text-sm text-foreground/80 hover:text-foreground px-3 py-2"
+                      >
+                        {sub}
+                      </a>
                     </DropdownMenuItem>
                   ))}
                 </DropdownMenuContent>
@@ -106,6 +140,31 @@ const Navbar = () => {
                       >
                         {sub}
                       </Link>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </li>
+
+            {/* Jewellery accordion on mobile */}
+            <li>
+              <button
+                onClick={() => setJewelleryOpen(!jewelleryOpen)}
+                className="flex items-center gap-1 text-muted-foreground hover:text-foreground transition-colors w-full text-left"
+              >
+                Jewellery <ChevronDown size={14} className={`transition-transform ${jewelleryOpen ? "rotate-180" : ""}`} />
+              </button>
+              {jewelleryOpen && (
+                <ul className="mt-2 ml-4 space-y-2">
+                  {jewellerySubcategories.map((sub) => (
+                    <li key={sub}>
+                      <a
+                        href="#jewellery"
+                        className="text-muted-foreground hover:text-foreground transition-colors text-xs"
+                        onClick={() => setOpen(false)}
+                      >
+                        {sub}
+                      </a>
                     </li>
                   ))}
                 </ul>
