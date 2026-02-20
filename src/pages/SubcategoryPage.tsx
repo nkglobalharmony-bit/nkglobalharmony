@@ -5,7 +5,7 @@ import Footer from "@/components/Footer";
 import { getSubcategory } from "@/data/subcategories";
 
 interface Props {
-  parent: "apparel" | "jewellery";
+  parent: "apparel" | "jewellery" | "toys-games";
 }
 
 const SubcategoryPage = ({ parent }: Props) => {

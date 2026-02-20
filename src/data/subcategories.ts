@@ -1,10 +1,10 @@
-import { Briefcase, Shirt, Dumbbell, HardHat, Baby, Gem, Tag, Leaf, Palette, Crown, Sparkles } from "lucide-react";
+import { Briefcase, Shirt, Dumbbell, HardHat, Baby, Gem, Tag, Leaf, Palette, Crown, Sparkles, BookOpen, Blocks, Rabbit, Puzzle, TreePine, Trophy, Gamepad2 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
 export interface SubcategoryData {
   title: string;
   slug: string;
-  parent: "apparel" | "jewellery";
+  parent: "apparel" | "jewellery" | "toys-games";
   parentLabel: string;
   description: string;
   longDescription: string;
@@ -261,3 +261,122 @@ export const subcategories: SubcategoryData[] = [
 export function getSubcategory(parent: string, slug: string): SubcategoryData | undefined {
   return subcategories.find((s) => s.parent === parent && s.slug === slug);
 }
+
+// ─── Toys & Games ──────────────────────────────────────────────────────────
+const toysGamesEntries: SubcategoryData[] = [
+  {
+    title: "Educational Toys",
+    slug: "educational-toys",
+    parent: "toys-games",
+    parentLabel: "Toys & Games",
+    icon: BookOpen,
+    description: "STEM kits, learning aids, and cognitive development toys for children across all age groups.",
+    longDescription:
+      "From phonics sets to robotics kits, our educational toy range is designed to stimulate learning through play — compliant with global safety standards and tailored to curriculum requirements.",
+    highlights: [
+      { heading: "STEM & Robotics Kits", body: "Coding robots, science experiment sets, and engineering kits for ages 4–14." },
+      { heading: "Literacy & Numeracy Aids", body: "Phonics cards, maths manipulatives, and reading game sets for early learners." },
+      { heading: "Safety Certified", body: "All products meet EN 71, ASTM F963, and CPSC safety standards." },
+      { heading: "School & Retail Supply", body: "Bulk supply for schools, educational retailers, and e-commerce platforms." },
+    ],
+  },
+  {
+    title: "Board Games",
+    slug: "board-games",
+    parent: "toys-games",
+    parentLabel: "Toys & Games",
+    icon: Blocks,
+    description: "Strategy, family, and party board games manufactured for retail, wholesale, and private label buyers.",
+    longDescription:
+      "From classic strategy games to trending party titles, we manufacture and export board games to global retail and wholesale buyers — with custom private label options available.",
+    highlights: [
+      { heading: "Family & Party Games", body: "Light strategy and social games designed for ages 6+ and group play." },
+      { heading: "Strategy & Hobby Games", body: "Complex euro-style and hobby games for enthusiast and specialist retailers." },
+      { heading: "Private Label Production", body: "Custom game development from mechanics to box printing and component sourcing." },
+      { heading: "Retail-Ready Packaging", body: "Full-colour box printing, rulebooks, and display-ready shelf packaging." },
+    ],
+  },
+  {
+    title: "Dolls & Soft Toys",
+    slug: "dolls-soft-toys",
+    parent: "toys-games",
+    parentLabel: "Toys & Games",
+    icon: Rabbit,
+    description: "Safety-certified dolls, plush toys, and stuffed animals for infant to tween markets worldwide.",
+    longDescription:
+      "Our soft toy and doll range combines premium materials with rigorous safety testing — from newborn-safe plush to fashion dolls and licensed character plush for the global market.",
+    highlights: [
+      { heading: "Infant-Safe Plush", body: "Ultra-soft, non-toxic plush toys with EN 71 and OEKO-TEX® certification." },
+      { heading: "Fashion & Play Dolls", body: "Articulated fashion dolls and play sets for retail and wholesale buyers." },
+      { heading: "Custom Character Plush", body: "Licensed or original character plush developed from artwork to production." },
+      { heading: "Weighted Fill Options", body: "Anti-anxiety weighted plush options available for therapeutic and gifting markets." },
+    ],
+  },
+  {
+    title: "Puzzles",
+    slug: "puzzles",
+    parent: "toys-games",
+    parentLabel: "Toys & Games",
+    icon: Puzzle,
+    description: "Jigsaw puzzles, 3D puzzles, and brain teasers in custom piece counts and themed designs.",
+    longDescription:
+      "We manufacture and export puzzles across all formats — from toddler floor puzzles to 1000-piece adult jigsaws — with custom artwork and private label options for global retail.",
+    highlights: [
+      { heading: "Jigsaw Puzzles", body: "Piece counts from 9 to 2000+, with custom imagery and licensing options." },
+      { heading: "3D Puzzles & Models", body: "Foam and wooden 3D puzzles for architecture, vehicles, and character themes." },
+      { heading: "Educational Puzzles", body: "Alphabet, number, and map puzzles designed for early learning markets." },
+      { heading: "Custom Artwork", body: "Branded or licensed artwork printed to specification for private label clients." },
+    ],
+  },
+  {
+    title: "Outdoor Toys",
+    slug: "outdoor-toys",
+    parent: "toys-games",
+    parentLabel: "Toys & Games",
+    icon: TreePine,
+    description: "Garden games, ride-ons, water play, and outdoor activity sets built for durability and safety.",
+    longDescription:
+      "From sandpits to battery-powered ride-ons, our outdoor toy range is designed for active play — built to withstand weather, heavy use, and the demands of the global toy market.",
+    highlights: [
+      { heading: "Ride-On Vehicles", body: "Battery-powered and push ride-ons for toddlers through to primary age children." },
+      { heading: "Garden & Lawn Games", body: "Croquet, boules, ring toss, and giant garden game sets for retail." },
+      { heading: "Water Play", body: "Paddling pools, water tables, and spray toys for seasonal summer markets." },
+      { heading: "Swing Sets & Climbing", body: "Modular outdoor play structures for garden retail and institutional supply." },
+    ],
+  },
+  {
+    title: "Sports Accessories & Equipment",
+    slug: "sports-accessories",
+    parent: "toys-games",
+    parentLabel: "Toys & Games",
+    icon: Trophy,
+    description: "Junior sports equipment, training accessories, and branded sporting goods for global distribution.",
+    longDescription:
+      "Our sports accessories and equipment range covers everything from junior training gear to branded team accessories — manufactured for sports retailers, schools, and club supply.",
+    highlights: [
+      { heading: "Junior Training Equipment", body: "Age-appropriate training sets for football, cricket, tennis, and more." },
+      { heading: "Team Accessories", body: "Branded cones, bibs, balls, and training gear for clubs and schools." },
+      { heading: "Fitness & Gym Accessories", body: "Resistance bands, jump ropes, agility ladders, and youth fitness equipment." },
+      { heading: "Custom Branding", body: "Team and school branding options across all equipment categories." },
+    ],
+  },
+  {
+    title: "Arcade Game Equipment",
+    slug: "arcade-game-equipment",
+    parent: "toys-games",
+    parentLabel: "Toys & Games",
+    icon: Gamepad2,
+    description: "Coin-operated and redemption arcade machines, tabletop games, and entertainment centre equipment.",
+    longDescription:
+      "We supply arcade and amusement equipment to entertainment venues, FECs, and retail operators — from classic coin-op cabinets to modern redemption machines and prize dispensers.",
+    highlights: [
+      { heading: "Redemption Machines", body: "Ticket and prize redemption arcade games for family entertainment centres." },
+      { heading: "Coin-Operated Cabinets", body: "Classic and modern video arcade cabinets built for commercial operation." },
+      { heading: "Tabletop & Mini Arcade", body: "Consumer and semi-commercial tabletop arcade units for retail and gifting." },
+      { heading: "FEC Supply & Installation", body: "Full venue fit-out supply for family entertainment centres and amusement parks." },
+    ],
+  },
+];
+
+subcategories.push(...toysGamesEntries);
+
