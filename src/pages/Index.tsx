@@ -5,6 +5,7 @@ import { ViewProvider, useView } from "@/context/ViewContext";
 
 const PageContent = () => {
   const { view } = useView();
+  const showFooter = view.type !== "home";
 
   return (
     <div className="min-h-screen bg-background text-foreground flex flex-col">
@@ -14,7 +15,7 @@ const PageContent = () => {
       {view.type === "subcategory" && (
         <SubcategoryView parent={view.parent} slug={view.slug} />
       )}
-      <Footer />
+      {showFooter && <Footer />}
     </div>
   );
 };
