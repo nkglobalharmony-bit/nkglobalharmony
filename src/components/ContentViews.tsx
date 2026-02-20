@@ -1,6 +1,15 @@
-import { ArrowLeft, ArrowRight } from "lucide-react"; // ArrowRight kept for subcategory CTA
+import { ArrowLeft, ArrowRight } from "lucide-react";
 import { subcategories, getSubcategory } from "@/data/subcategories";
 import { useView } from "@/context/ViewContext";
+import apparelImg from "@/assets/hero-apparel.jpg";
+import jewelleryImg from "@/assets/hero-jewellery.jpg";
+import toysImg from "@/assets/hero-toys.jpg";
+
+const categoryImages: Record<string, string> = {
+  apparel: apparelImg,
+  jewellery: jewelleryImg,
+  "toys-games": toysImg,
+};
 
 // ── Category landing (grid of subcategory cards) ────────────────────────────
 export const CategoryView = ({
@@ -28,17 +37,29 @@ export const CategoryView = ({
 
   return (
     <main className="flex-1">
-      <section className="border-b border-border">
-        <div className="container py-16 md:py-24">
+      {/* Hero image */}
+      <div className="relative w-full h-[340px] md:h-[460px] overflow-hidden border-b border-border">
+        <img
+          src={categoryImages[parent]}
+          alt={label}
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-background/55" />
+        <div className="absolute inset-0 flex flex-col justify-end container pb-10 md:pb-14">
           <button
             onClick={() => setView({ type: "home" })}
-            className="inline-flex items-center gap-2 text-sm font-sans tracking-wide text-muted-foreground hover:text-foreground transition-colors mb-8"
+            className="inline-flex items-center gap-2 text-sm font-sans tracking-wide text-foreground/80 hover:text-foreground transition-colors mb-5 w-fit"
           >
             <ArrowLeft size={16} /> Back to Home
           </button>
-          <h1 className="font-serif text-5xl md:text-7xl font-medium tracking-tight mb-6">
+          <h1 className="font-serif text-5xl md:text-7xl font-medium tracking-tight text-foreground">
             {label}
           </h1>
+        </div>
+      </div>
+
+      <section className="border-b border-border">
+        <div className="container py-10 md:py-14">
           <p className="text-lg md:text-xl text-foreground/80 max-w-2xl leading-relaxed">
             {descriptions[parent]}
           </p>
@@ -107,22 +128,32 @@ export const SubcategoryView = ({
 
   return (
     <main className="flex-1">
-      <section className="border-b border-border">
-        <div className="container py-16 md:py-24">
-          <div className="flex flex-col gap-2 mb-8">
-            <button
-              onClick={() => setView({ type: "category", parent })}
-              className="inline-flex items-center gap-2 text-xs font-sans tracking-wide text-muted-foreground hover:text-foreground transition-colors w-fit"
-            >
-              <ArrowLeft size={14} /> Back to {data.parentLabel}
-            </button>
-          </div>
-          <div className="flex items-start gap-5 mb-6">
-            <Icon size={36} strokeWidth={1.25} className="text-foreground mt-1 shrink-0" />
-            <h1 className="font-serif text-5xl md:text-7xl font-medium tracking-tight leading-tight">
+      {/* Hero image banner */}
+      <div className="relative w-full h-[300px] md:h-[420px] overflow-hidden border-b border-border">
+        <img
+          src={categoryImages[parent]}
+          alt={data.parentLabel}
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-background/60" />
+        <div className="absolute inset-0 flex flex-col justify-end container pb-10 md:pb-14">
+          <button
+            onClick={() => setView({ type: "category", parent })}
+            className="inline-flex items-center gap-2 text-xs font-sans tracking-wide text-foreground/80 hover:text-foreground transition-colors mb-5 w-fit"
+          >
+            <ArrowLeft size={14} /> Back to {data.parentLabel}
+          </button>
+          <div className="flex items-end gap-4">
+            <Icon size={36} strokeWidth={1.25} className="text-foreground mb-1 shrink-0" />
+            <h1 className="font-serif text-5xl md:text-7xl font-medium tracking-tight leading-tight text-foreground">
               {data.title}
             </h1>
           </div>
+        </div>
+      </div>
+
+      <section className="border-b border-border">
+        <div className="container py-10 md:py-14">
           <p className="text-lg md:text-xl text-foreground/80 max-w-2xl leading-relaxed">
             {data.longDescription}
           </p>
