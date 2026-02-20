@@ -1,4 +1,5 @@
 import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const CallToAction = () => (
   <section className="border-b border-border">
@@ -10,12 +11,12 @@ const CallToAction = () => (
         Whether you're sourcing products or expanding distribution, we're ready
         to connect.
       </p>
-      <a
-        href="#request-a-quote"
+      <Link
+        to="/quote"
         className="inline-flex items-center gap-2 border border-border px-8 py-3.5 text-sm font-sans tracking-wide hover:bg-foreground hover:text-background transition-colors"
       >
         Request Quote <ArrowRight size={16} />
-      </a>
+      </Link>
     </div>
   </section>
 );

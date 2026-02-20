@@ -8,6 +8,7 @@ import Apparel from "./pages/Apparel";
 import Jewellery from "./pages/Jewellery";
 import ToysGames from "./pages/ToysGames";
 import SubcategoryPage from "./pages/SubcategoryPage";
+import Quote from "./pages/Quote";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -26,6 +27,7 @@ const App = () => (
           <Route path="/jewellery/:slug" element={<SubcategoryPage parent="jewellery" />} />
           <Route path="/toys-games" element={<ToysGames />} />
           <Route path="/toys-games/:slug" element={<SubcategoryPage parent="toys-games" />} />
+          <Route path="/quote" element={<Quote />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
