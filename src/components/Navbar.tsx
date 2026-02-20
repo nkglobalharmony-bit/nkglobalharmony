@@ -29,7 +29,7 @@ const jewellerySubcategories = [
   "Custom Design Development & Sampling Support",
 ];
 
-const navItems = ["Educational Systems", "Request a Quote"];
+const navItems = ["Toys & Games", "Request a Quote"];
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
