@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import Apparel from "./pages/Apparel";
 import Jewellery from "./pages/Jewellery";
+import SubcategoryPage from "./pages/SubcategoryPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -19,7 +20,9 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/apparel" element={<Apparel />} />
+          <Route path="/apparel/:slug" element={<SubcategoryPage parent="apparel" />} />
           <Route path="/jewellery" element={<Jewellery />} />
+          <Route path="/jewellery/:slug" element={<SubcategoryPage parent="jewellery" />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
@@ -29,3 +32,4 @@ const App = () => (
 );
 
 export default App;
+

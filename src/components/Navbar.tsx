@@ -10,23 +10,23 @@ import {
 } from "@/components/ui/dropdown-menu";
 
 const apparelSubcategories = [
-  "Menswear",
-  "Womenswear",
-  "Kidswear",
-  "Ethnic & Occasion Wear",
-  "Activewear & Athleisure",
-  "Private Label Production",
-  "Custom Sampling & Bulk Manufacturing",
-  "Organic & Sustainable Fabric Options",
+  { label: "Menswear", slug: "menswear" },
+  { label: "Womenswear", slug: "womenswear" },
+  { label: "Kidswear", slug: "kidswear" },
+  { label: "Ethnic & Occasion Wear", slug: "ethnic-occasion-wear" },
+  { label: "Activewear & Athleisure", slug: "activewear-athleisure" },
+  { label: "Private Label Production", slug: "private-label-production" },
+  { label: "Custom Sampling & Bulk Manufacturing", slug: "custom-sampling-bulk" },
+  { label: "Organic & Sustainable Fabric Options", slug: "organic-sustainable" },
 ];
 
 const jewellerySubcategories = [
-  "925 Sterling Silver Jewellery",
-  "Gold & Platinum Jewellery",
-  "Trend-Driven Fashion Jewellery (Mass Market & Retail)",
-  "Lab-Grown Diamonds & Gemstones",
-  "Private Label Jewellery Production",
-  "Custom Design Development & Sampling Support",
+  { label: "925 Sterling Silver Jewellery", slug: "sterling-silver" },
+  { label: "Gold & Platinum Jewellery", slug: "gold-platinum" },
+  { label: "Trend-Driven Fashion Jewellery (Mass Market & Retail)", slug: "fashion-jewellery" },
+  { label: "Lab-Grown Diamonds & Gemstones", slug: "lab-grown" },
+  { label: "Private Label Jewellery Production", slug: "private-label" },
+  { label: "Custom Design Development & Sampling Support", slug: "custom-design" },
 ];
 
 const navItems = ["Toys & Games", "Request a Quote"];
@@ -57,12 +57,12 @@ const Navbar = () => {
                   className="bg-background border border-border shadow-md z-50 min-w-[240px]"
                 >
                   {apparelSubcategories.map((sub) => (
-                    <DropdownMenuItem key={sub} asChild>
+                    <DropdownMenuItem key={sub.slug} asChild>
                       <Link
-                        to="/apparel"
+                        to={`/apparel/${sub.slug}`}
                         className="cursor-pointer text-sm text-foreground/80 hover:text-foreground px-3 py-2"
                       >
-                        {sub}
+                        {sub.label}
                       </Link>
                     </DropdownMenuItem>
                   ))}
@@ -81,12 +81,12 @@ const Navbar = () => {
                   className="bg-background border border-border shadow-md z-50 min-w-[280px]"
                 >
                   {jewellerySubcategories.map((sub) => (
-                    <DropdownMenuItem key={sub} asChild>
+                    <DropdownMenuItem key={sub.slug} asChild>
                       <Link
-                        to="/jewellery"
+                        to={`/jewellery/${sub.slug}`}
                         className="cursor-pointer text-sm text-foreground/80 hover:text-foreground px-3 py-2"
                       >
-                        {sub}
+                        {sub.label}
                       </Link>
                     </DropdownMenuItem>
                   ))}
@@ -132,13 +132,13 @@ const Navbar = () => {
               {apparelOpen && (
                 <ul className="mt-2 ml-4 space-y-2">
                   {apparelSubcategories.map((sub) => (
-                    <li key={sub}>
+                    <li key={sub.slug}>
                       <Link
-                        to="/apparel"
+                        to={`/apparel/${sub.slug}`}
                         className="text-muted-foreground hover:text-foreground transition-colors text-xs"
                         onClick={() => setOpen(false)}
                       >
-                        {sub}
+                        {sub.label}
                       </Link>
                     </li>
                   ))}
@@ -157,13 +157,13 @@ const Navbar = () => {
               {jewelleryOpen && (
                 <ul className="mt-2 ml-4 space-y-2">
                   {jewellerySubcategories.map((sub) => (
-                    <li key={sub}>
+                    <li key={sub.slug}>
                       <Link
-                        to="/jewellery"
+                        to={`/jewellery/${sub.slug}`}
                         className="text-muted-foreground hover:text-foreground transition-colors text-xs"
                         onClick={() => setOpen(false)}
                       >
-                        {sub}
+                        {sub.label}
                       </Link>
                     </li>
                   ))}
@@ -190,4 +190,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
