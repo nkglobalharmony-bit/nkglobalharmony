@@ -82,12 +82,12 @@ const Navbar = () => {
                 >
                   {jewellerySubcategories.map((sub) => (
                     <DropdownMenuItem key={sub} asChild>
-                      <a
-                        href="#jewellery"
+                      <Link
+                        to="/jewellery"
                         className="cursor-pointer text-sm text-foreground/80 hover:text-foreground px-3 py-2"
                       >
                         {sub}
-                      </a>
+                      </Link>
                     </DropdownMenuItem>
                   ))}
                 </DropdownMenuContent>
@@ -158,13 +158,13 @@ const Navbar = () => {
                 <ul className="mt-2 ml-4 space-y-2">
                   {jewellerySubcategories.map((sub) => (
                     <li key={sub}>
-                      <a
-                        href="#jewellery"
+                      <Link
+                        to="/jewellery"
                         className="text-muted-foreground hover:text-foreground transition-colors text-xs"
                         onClick={() => setOpen(false)}
                       >
                         {sub}
-                      </a>
+                      </Link>
                     </li>
                   ))}
                 </ul>
