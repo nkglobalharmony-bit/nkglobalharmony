@@ -29,12 +29,24 @@ const jewellerySubcategories = [
   { label: "Custom Design Development & Sampling Support", slug: "custom-design" },
 ];
 
-const navItems = ["Toys & Games", "Request a Quote"];
+const toysGamesSubcategories = [
+  { label: "Educational Toys", slug: "educational-toys" },
+  { label: "Board Games", slug: "board-games" },
+  { label: "Dolls & Soft Toys", slug: "dolls-soft-toys" },
+  { label: "Puzzles", slug: "puzzles" },
+  { label: "Outdoor Toys", slug: "outdoor-toys" },
+  { label: "Sports Accessories & Equipment", slug: "sports-accessories" },
+  { label: "Arcade Game Equipment", slug: "arcade-game-equipment" },
+];
+
+const navItems = ["Request a Quote"];
+
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   const [apparelOpen, setApparelOpen] = useState(false);
   const [jewelleryOpen, setJewelleryOpen] = useState(false);
+  const [toysOpen, setToysOpen] = useState(false);
 
   return (
     <header className="border-b border-border bg-background/95 backdrop-blur-sm shadow-sm sticky top-0 z-50">
@@ -84,6 +96,30 @@ const Navbar = () => {
                     <DropdownMenuItem key={sub.slug} asChild>
                       <Link
                         to={`/jewellery/${sub.slug}`}
+                        className="cursor-pointer text-sm text-foreground/80 hover:text-foreground px-3 py-2"
+                      >
+                        {sub.label}
+                      </Link>
+                    </DropdownMenuItem>
+                  ))}
+                </DropdownMenuContent>
+              </DropdownMenu>
+            </li>
+
+            {/* Toys & Games with dropdown */}
+            <li>
+              <DropdownMenu>
+                <DropdownMenuTrigger className="flex items-center gap-1 text-muted-foreground hover:text-foreground transition-colors outline-none">
+                  Toys &amp; Games <ChevronDown size={14} />
+                </DropdownMenuTrigger>
+                <DropdownMenuContent
+                  align="start"
+                  className="bg-background border border-border shadow-md z-50 min-w-[260px]"
+                >
+                  {toysGamesSubcategories.map((sub) => (
+                    <DropdownMenuItem key={sub.slug} asChild>
+                      <Link
+                        to={`/toys-games/${sub.slug}`}
                         className="cursor-pointer text-sm text-foreground/80 hover:text-foreground px-3 py-2"
                       >
                         {sub.label}
@@ -160,6 +196,31 @@ const Navbar = () => {
                     <li key={sub.slug}>
                       <Link
                         to={`/jewellery/${sub.slug}`}
+                        className="text-muted-foreground hover:text-foreground transition-colors text-xs"
+                        onClick={() => setOpen(false)}
+                      >
+                        {sub.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </li>
+
+            {/* Toys & Games accordion on mobile */}
+            <li>
+              <button
+                onClick={() => setToysOpen(!toysOpen)}
+                className="flex items-center gap-1 text-muted-foreground hover:text-foreground transition-colors w-full text-left"
+              >
+                Toys &amp; Games <ChevronDown size={14} className={`transition-transform ${toysOpen ? "rotate-180" : ""}`} />
+              </button>
+              {toysOpen && (
+                <ul className="mt-2 ml-4 space-y-2">
+                  {toysGamesSubcategories.map((sub) => (
+                    <li key={sub.slug}>
+                      <Link
+                        to={`/toys-games/${sub.slug}`}
                         className="text-muted-foreground hover:text-foreground transition-colors text-xs"
                         onClick={() => setOpen(false)}
                       >
