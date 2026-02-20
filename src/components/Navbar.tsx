@@ -130,16 +130,14 @@ const Navbar = () => {
               </DropdownMenu>
             </li>
 
-            {navItems.map((item) => (
-              <li key={item}>
-                <a
-                  href={`#${item.toLowerCase().replace(/\s+/g, "-")}`}
-                  className="text-muted-foreground hover:text-foreground transition-colors"
-                >
-                  {item}
-                </a>
-              </li>
-            ))}
+            <li>
+              <Link
+                to="/quote"
+                className="text-muted-foreground hover:text-foreground transition-colors"
+              >
+                Request a Quote
+              </Link>
+            </li>
           </ul>
         </nav>
 
@@ -232,17 +230,15 @@ const Navbar = () => {
               )}
             </li>
 
-            {navItems.map((item) => (
-              <li key={item}>
-                <a
-                  href={`#${item.toLowerCase().replace(/\s+/g, "-")}`}
-                  className="text-muted-foreground hover:text-foreground transition-colors"
-                  onClick={() => setOpen(false)}
-                >
-                  {item}
-                </a>
-              </li>
-            ))}
+            <li>
+              <Link
+                to="/quote"
+                className="text-muted-foreground hover:text-foreground transition-colors"
+                onClick={() => setOpen(false)}
+              >
+                Request a Quote
+              </Link>
+            </li>
           </ul>
         </nav>
       )}
