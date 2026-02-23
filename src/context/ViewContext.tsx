@@ -1,9 +1,11 @@
 import { createContext, useContext, useState, ReactNode } from "react";
 
+export type ParentCategory = "apparel" | "jewellery" | "toys-games" | "packaging";
+
 export type ViewState =
   | { type: "home" }
-  | { type: "category"; parent: "apparel" | "jewellery" | "toys-games" }
-  | { type: "subcategory"; parent: "apparel" | "jewellery" | "toys-games"; slug: string };
+  | { type: "category"; parent: ParentCategory }
+  | { type: "subcategory"; parent: ParentCategory; slug: string };
 
 interface ViewContextValue {
   view: ViewState;

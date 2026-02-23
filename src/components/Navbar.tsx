@@ -51,7 +51,19 @@ const toysGamesSubcategories = [
   { label: "Arcade Game Equipment", slug: "arcade-game-equipment" },
 ];
 
-type Parent = "apparel" | "jewellery" | "toys-games";
+const packagingSubcategories = [
+  { label: "Sustainable & Eco-Friendly", slug: "sustainable-eco-friendly" },
+  { label: "Corrugated Export Cartons", slug: "corrugated-export-cartons" },
+  { label: "Luxury Rigid Gift Boxes", slug: "luxury-rigid-gift-boxes" },
+  { label: "Custom Printed Paper Bags", slug: "custom-printed-paper-bags" },
+  { label: "Apparel Packaging", slug: "apparel-packaging" },
+  { label: "Jewellery Packaging", slug: "jewellery-packaging" },
+  { label: "E-Commerce Mailer Packaging", slug: "ecommerce-mailer-packaging" },
+  { label: "Labels, Tags & Printed Branding Materials", slug: "labels-tags-branding" },
+  { label: "Custom Branding & Private Label Packaging", slug: "custom-branding-private-label" },
+];
+
+type Parent = "apparel" | "jewellery" | "toys-games" | "packaging";
 
 // Hook that safely returns setView only when on the homepage (ViewProvider present)
 const useSafeView = () => {
@@ -67,6 +79,7 @@ const Navbar = () => {
   const [apparelOpen, setApparelOpen] = useState(false);
   const [jewelleryOpen, setJewelleryOpen] = useState(false);
   const [toysOpen, setToysOpen] = useState(false);
+  const [packagingOpen, setPackagingOpen] = useState(false);
   const location = useLocation();
   const viewCtx = useSafeView();
   const isHome = location.pathname === "/";
@@ -155,6 +168,15 @@ const Navbar = () => {
                 {categoryTrigger("Toys & Games", "toys-games")}
                 <DropdownMenuContent align="start" className="bg-background border border-border shadow-md z-50 min-w-[260px]">
                   {toysGamesSubcategories.map((sub) => subcategoryItem(sub, "toys-games"))}
+                </DropdownMenuContent>
+              </DropdownMenu>
+            </li>
+
+            <li>
+              <DropdownMenu>
+                {categoryTrigger("Packaging", "packaging")}
+                <DropdownMenuContent align="start" className="bg-background border border-border shadow-md z-50 min-w-[300px]">
+                  {packagingSubcategories.map((sub) => subcategoryItem(sub, "packaging"))}
                 </DropdownMenuContent>
               </DropdownMenu>
             </li>
@@ -274,6 +296,40 @@ const Navbar = () => {
                       ) : (
                         <Link
                           to={`/toys-games/${sub.slug}`}
+                          className="text-muted-foreground hover:text-foreground transition-colors text-xs"
+                          onClick={() => setOpen(false)}
+                        >
+                          {sub.label}
+                        </Link>
+                      )}
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </li>
+
+            {/* Packaging */}
+            <li>
+              <button
+                onClick={() => { setPackagingOpen(!packagingOpen); handleCategory("packaging"); }}
+                className="flex items-center gap-1 text-muted-foreground hover:text-foreground transition-colors w-full text-left"
+              >
+                Packaging <ChevronDown size={14} className={`transition-transform ${packagingOpen ? "rotate-180" : ""}`} />
+              </button>
+              {packagingOpen && (
+                <ul className="mt-2 ml-4 space-y-2">
+                  {packagingSubcategories.map((sub) => (
+                    <li key={sub.slug}>
+                      {isHome ? (
+                        <button
+                          onClick={() => handleSubcategory("packaging", sub.slug)}
+                          className="text-muted-foreground hover:text-foreground transition-colors text-xs text-left"
+                        >
+                          {sub.label}
+                        </button>
+                      ) : (
+                        <Link
+                          to={`/packaging/${sub.slug}`}
                           className="text-muted-foreground hover:text-foreground transition-colors text-xs"
                           onClick={() => setOpen(false)}
                         >
