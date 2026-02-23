@@ -147,9 +147,25 @@ const Navbar = () => {
           <ul className="flex items-center gap-8 font-sans text-sm tracking-wide">
             <li>
               <DropdownMenu>
-                {categoryTrigger("Apparel", "apparel")}
+                <DropdownMenuTrigger asChild>
+                  <Link
+                    to="/apparel"
+                    className="flex items-center gap-1 text-muted-foreground hover:text-foreground transition-colors outline-none"
+                  >
+                    Apparel <ChevronDown size={14} />
+                  </Link>
+                </DropdownMenuTrigger>
                 <DropdownMenuContent align="start" className="bg-background border border-border shadow-md z-50 min-w-[240px]">
-                  {apparelSubcategories.map((sub) => subcategoryItem(sub, "apparel"))}
+                  {apparelSubcategories.map((sub) => (
+                    <DropdownMenuItem key={sub.slug} asChild>
+                      <Link
+                        to={`/apparel/${sub.slug}`}
+                        className="cursor-pointer text-sm text-foreground/80 hover:text-foreground px-3 py-2"
+                      >
+                        {sub.label}
+                      </Link>
+                    </DropdownMenuItem>
+                  ))}
                 </DropdownMenuContent>
               </DropdownMenu>
             </li>
@@ -209,31 +225,31 @@ const Navbar = () => {
             {/* Apparel */}
             <li>
               <button
-                onClick={() => { setApparelOpen(!apparelOpen); handleCategory("apparel"); }}
+                onClick={() => setApparelOpen(!apparelOpen)}
                 className="flex items-center gap-1 text-muted-foreground hover:text-foreground transition-colors w-full text-left"
               >
                 Apparel <ChevronDown size={14} className={`transition-transform ${apparelOpen ? "rotate-180" : ""}`} />
               </button>
               {apparelOpen && (
                 <ul className="mt-2 ml-4 space-y-2">
+                  <li>
+                    <Link
+                      to="/apparel"
+                      className="text-muted-foreground hover:text-foreground transition-colors text-xs font-medium"
+                      onClick={() => setOpen(false)}
+                    >
+                      View All Apparel
+                    </Link>
+                  </li>
                   {apparelSubcategories.map((sub) => (
                     <li key={sub.slug}>
-                      {isHome ? (
-                        <button
-                          onClick={() => handleSubcategory("apparel", sub.slug)}
-                          className="text-muted-foreground hover:text-foreground transition-colors text-xs text-left"
-                        >
-                          {sub.label}
-                        </button>
-                      ) : (
-                        <Link
-                          to={`/apparel/${sub.slug}`}
-                          className="text-muted-foreground hover:text-foreground transition-colors text-xs"
-                          onClick={() => setOpen(false)}
-                        >
-                          {sub.label}
-                        </Link>
-                      )}
+                      <Link
+                        to={`/apparel/${sub.slug}`}
+                        className="text-muted-foreground hover:text-foreground transition-colors text-xs"
+                        onClick={() => setOpen(false)}
+                      >
+                        {sub.label}
+                      </Link>
                     </li>
                   ))}
                 </ul>
