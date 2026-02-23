@@ -1,6 +1,6 @@
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { subcategories, getSubcategory } from "@/data/subcategories";
-import { useView } from "@/context/ViewContext";
+import { useView, type ParentCategory } from "@/context/ViewContext";
 import apparelImg from "@/assets/hero-apparel.jpg";
 import jewelleryImg from "@/assets/hero-jewellery.jpg";
 import toysImg from "@/assets/hero-toys.jpg";
@@ -15,7 +15,7 @@ const categoryImages: Record<string, string> = {
 export const CategoryView = ({
   parent,
 }: {
-  parent: "apparel" | "jewellery" | "toys-games";
+  parent: ParentCategory;
 }) => {
   const { setView } = useView();
   const items = subcategories.filter((s) => s.parent === parent);
@@ -104,7 +104,7 @@ export const SubcategoryView = ({
   parent,
   slug,
 }: {
-  parent: "apparel" | "jewellery" | "toys-games";
+  parent: ParentCategory;
   slug: string;
 }) => {
   const { setView } = useView();
