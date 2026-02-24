@@ -5,17 +5,23 @@ import { ViewProvider, useView } from "@/context/ViewContext";
 
 const PageContent = () => {
   const { view } = useView();
-  const showFooter = view.type !== "home";
 
   return (
     <div className="min-h-screen bg-background text-foreground flex flex-col">
       <Navbar />
       {view.type === "home" && <HomeView />}
-      {view.type === "category" && <CategoryView parent={view.parent} />}
-      {view.type === "subcategory" && (
-        <SubcategoryView parent={view.parent} slug={view.slug} />
+      {view.type === "category" && (
+        <>
+          <CategoryView parent={view.parent} />
+          <Footer />
+        </>
       )}
-      {showFooter && <Footer />}
+      {view.type === "subcategory" && (
+        <>
+          <SubcategoryView parent={view.parent} slug={view.slug} />
+          <Footer />
+        </>
+      )}
     </div>
   );
 };

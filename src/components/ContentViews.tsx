@@ -1,6 +1,13 @@
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { subcategories, getSubcategory } from "@/data/subcategories";
 import { useView, type ParentCategory } from "@/context/ViewContext";
+import Hero from "@/components/Hero";
+import FeaturedCategories from "@/components/FeaturedCategories";
+import Services from "@/components/Services";
+import GlobalReach from "@/components/GlobalReach";
+import QuoteSection from "@/components/QuoteSection";
+import CallToAction from "@/components/CallToAction";
+import Footer from "@/components/Footer";
 import apparelImg from "@/assets/hero-apparel.jpg";
 import jewelleryImg from "@/assets/hero-jewellery.jpg";
 import toysImg from "@/assets/hero-toys.jpg";
@@ -24,7 +31,11 @@ export const CategoryView = ({
       ? "Apparel"
       : parent === "jewellery"
       ? "Jewellery"
-      : "Toys & Games";
+      : parent === "toys-games"
+      ? "Toys & Games"
+      : parent === "packaging"
+      ? "Packaging"
+      : "Services";
 
   const descriptions: Record<string, string> = {
     apparel:
@@ -38,40 +49,40 @@ export const CategoryView = ({
   return (
     <main className="flex-1">
       {/* Hero image */}
-      <div className="relative w-full h-[340px] md:h-[460px] overflow-hidden border-b border-border">
+      <div className="relative w-full h-[400px] md:h-[500px] overflow-hidden">
         <img
           src={categoryImages[parent]}
           alt={label}
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-background/55" />
-        <div className="absolute inset-0 flex flex-col justify-end container pb-10 md:pb-14">
+        <div className="absolute inset-0 bg-black/50" />
+        <div className="absolute inset-0 flex flex-col justify-end container pb-12 md:pb-16">
           <button
             onClick={() => setView({ type: "home" })}
-            className="inline-flex items-center gap-2 text-sm font-sans tracking-wide text-foreground/80 hover:text-foreground transition-colors mb-5 w-fit"
+            className="inline-flex items-center gap-2 text-sm font-sans tracking-wide text-white/70 hover:text-white transition-colors mb-5 w-fit"
           >
             <ArrowLeft size={16} /> Back to Home
           </button>
-          <h1 className="font-serif text-5xl md:text-7xl font-medium tracking-tight text-foreground">
+          <h1 className="font-serif text-5xl md:text-7xl font-bold tracking-tight text-white">
             {label}
           </h1>
         </div>
       </div>
 
-      <section className="border-b border-border">
-        <div className="container py-10 md:py-14">
-          <p className="text-lg md:text-xl text-foreground/80 max-w-2xl leading-relaxed">
+      <section>
+        <div className="container py-12 md:py-16">
+          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed">
             {descriptions[parent]}
           </p>
         </div>
       </section>
 
-      <section>
-        <div className="container py-16 md:py-20">
-          <span className="text-xs font-sans tracking-[0.2em] uppercase text-muted-foreground mb-10 block">
+      <section className="pb-20">
+        <div className="container">
+          <span className="text-xs font-sans tracking-[0.3em] uppercase text-muted-foreground mb-10 block">
             Categories
           </span>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-border border border-border">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
             {items.map((cat) => {
               const Icon = cat.icon;
               return (
@@ -80,13 +91,13 @@ export const CategoryView = ({
                   onClick={() =>
                     setView({ type: "subcategory", parent, slug: cat.slug })
                   }
-                  className="bg-background p-8 md:p-10 flex flex-col text-left hover:bg-muted/40 transition-colors group"
+                  className="bg-secondary p-8 md:p-10 flex flex-col text-left hover:shadow-lg transition-all group"
                 >
-                  <Icon size={24} className="text-foreground mb-5" strokeWidth={1.5} />
-                  <h2 className="font-serif text-xl md:text-2xl font-medium mb-3 group-hover:underline underline-offset-4">
+                  <Icon size={28} className="text-foreground mb-5" strokeWidth={1.5} />
+                  <h2 className="font-serif text-xl md:text-2xl font-semibold mb-3 group-hover:underline underline-offset-4">
                     {cat.title}
                   </h2>
-                  <p className="text-sm text-foreground/70 leading-relaxed">
+                  <p className="text-sm text-muted-foreground leading-relaxed">
                     {cat.description}
                   </p>
                 </button>
@@ -119,7 +130,7 @@ export const SubcategoryView = ({
         >
           <ArrowLeft size={16} /> Back
         </button>
-        <p className="text-foreground/60">Category not found.</p>
+        <p className="text-muted-foreground">Category not found.</p>
       </main>
     );
   }
@@ -129,68 +140,68 @@ export const SubcategoryView = ({
   return (
     <main className="flex-1">
       {/* Hero image banner */}
-      <div className="relative w-full h-[300px] md:h-[420px] overflow-hidden border-b border-border">
+      <div className="relative w-full h-[350px] md:h-[450px] overflow-hidden">
         <img
           src={categoryImages[parent]}
           alt={data.parentLabel}
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-background/60" />
-        <div className="absolute inset-0 flex flex-col justify-end container pb-10 md:pb-14">
+        <div className="absolute inset-0 bg-black/55" />
+        <div className="absolute inset-0 flex flex-col justify-end container pb-12 md:pb-16">
           <button
             onClick={() => setView({ type: "category", parent })}
-            className="inline-flex items-center gap-2 text-xs font-sans tracking-wide text-foreground/80 hover:text-foreground transition-colors mb-5 w-fit"
+            className="inline-flex items-center gap-2 text-xs font-sans tracking-wide text-white/70 hover:text-white transition-colors mb-5 w-fit"
           >
             <ArrowLeft size={14} /> Back to {data.parentLabel}
           </button>
           <div className="flex items-end gap-4">
-            <Icon size={36} strokeWidth={1.25} className="text-foreground mb-1 shrink-0" />
-            <h1 className="font-serif text-5xl md:text-7xl font-medium tracking-tight leading-tight text-foreground">
+            <Icon size={36} strokeWidth={1.25} className="text-white mb-1 shrink-0" />
+            <h1 className="font-serif text-5xl md:text-7xl font-bold tracking-tight leading-tight text-white">
               {data.title}
             </h1>
           </div>
         </div>
       </div>
 
-      <section className="border-b border-border">
-        <div className="container py-10 md:py-14">
-          <p className="text-lg md:text-xl text-foreground/80 max-w-2xl leading-relaxed">
+      <section>
+        <div className="container py-12 md:py-16">
+          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed">
             {data.longDescription}
           </p>
         </div>
       </section>
 
-      <section>
+      <section className="bg-secondary">
         <div className="container py-16 md:py-20">
-          <span className="text-xs font-sans tracking-[0.2em] uppercase text-muted-foreground mb-10 block">
+          <span className="text-xs font-sans tracking-[0.3em] uppercase text-muted-foreground mb-10 block">
             What We Offer
           </span>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-border border border-border">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             {data.highlights.map((h) => (
               <div key={h.heading} className="bg-background p-8 md:p-10">
-                <h2 className="font-serif text-xl md:text-2xl font-medium mb-3">
+                <h2 className="font-serif text-xl md:text-2xl font-semibold mb-3">
                   {h.heading}
                 </h2>
-                <p className="text-sm text-foreground/70 leading-relaxed">{h.body}</p>
+                <p className="text-sm text-muted-foreground leading-relaxed">{h.body}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="border-t border-border">
+      <section>
         <div className="container py-16 md:py-20 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
           <div>
-            <h3 className="font-serif text-2xl md:text-3xl font-medium mb-2">
+            <h3 className="font-serif text-2xl md:text-3xl font-semibold mb-2">
               Interested in {data.title}?
             </h3>
-            <p className="text-sm text-foreground/60">
+            <p className="text-sm text-muted-foreground">
               Get in touch to discuss quantities, samples, and pricing.
             </p>
           </div>
           <a
             href="/quote"
-            className="inline-flex items-center gap-2 border border-foreground px-6 py-3 text-sm font-sans tracking-wide hover:bg-foreground hover:text-background transition-colors shrink-0"
+            className="inline-flex items-center gap-2 bg-foreground text-background px-8 py-4 text-sm font-sans font-semibold tracking-wide hover:bg-foreground/90 transition-colors shrink-0"
           >
             Request a Quote <ArrowRight size={16} />
           </a>
@@ -201,4 +212,14 @@ export const SubcategoryView = ({
 };
 
 // ── Default home view ───────────────────────────────────────────────────────
-export const HomeView = () => <main className="flex-1" />;
+export const HomeView = () => (
+  <>
+    <Hero />
+    <FeaturedCategories />
+    <Services />
+    <GlobalReach />
+    <QuoteSection />
+    <CallToAction />
+    <Footer />
+  </>
+);
