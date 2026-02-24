@@ -1,40 +1,40 @@
 
 
-## Add Apparel Genres/Categories
+## Add Services Dropdown to Navbar
 
 ### What will be done
 
-Create an **Apparel page** at `/apparel` that showcases different genres/choices of apparel that NK Global trades in. The page will include a hero section and a grid of apparel genres, each with a title, description, and icon -- all in the existing minimalist editorial style.
+Add a **Services** dropdown menu to the navigation bar (both desktop and mobile) with the following 6 subcategories:
 
-**Apparel genres to include:**
-- **Formal Wear** -- Tailored suits, blazers, dress shirts for corporate and occasion wear
-- **Casual Wear** -- Everyday essentials: t-shirts, polos, denim, and knitwear
-- **Activewear & Sportswear** -- Performance-driven athletic apparel with moisture-wicking fabrics
-- **Workwear & Uniforms** -- Industrial, hospitality, and corporate uniform solutions
-- **Children's Clothing** -- Durable, safe, and comfortable garments for kids
-- **Ethnic & Traditional Wear** -- Cultural garments crafted for global distribution
+1. Brand Building & Consulting
+2. Market Research & Trend Forecasting Services
+3. Product Development & Prototyping Services
+4. Social Media Creatives & E-Commerce Marketing Services
+5. Strategic Management in International Business
+6. Fashion Tech Packs & Management
 
 ### Changes
 
-1. **New file: `src/pages/Apparel.tsx`**
-   - Hero section with "Apparel" heading and intro text
-   - Grid layout of 6 apparel genre cards, each with title, description, and a subtle icon
-   - Includes Navbar and Footer for consistent layout
-   - A back link to the homepage
+**1. Modified: `src/components/Navbar.tsx`**
+- Add a `servicesSubcategories` array with the 6 items above (each with label and slug)
+- Add `"services"` to the `Parent` type union
+- Add a Services `DropdownMenu` in the desktop nav (between Packaging and Request a Quote)
+- Add a `servicesOpen` state for mobile accordion toggle
+- Add Services collapsible section in the mobile nav
+- Dropdown items will link to `/services/:slug` routes
 
-2. **Modified: `src/App.tsx`**
-   - Add `/apparel` route pointing to the new Apparel page
+**2. Modified: `src/context/ViewContext.tsx`**
+- Add `"services"` to the `ParentCategory` type
 
-3. **Modified: `src/components/Navbar.tsx`**
-   - Update "Apparel" link to use React Router `Link` to `/apparel`
+**3. Modified: `src/App.tsx`**
+- Add route `/services/:slug` pointing to `SubcategoryPage` with `parent="services"`
 
-4. **Modified: `src/components/Hero.tsx`**
-   - Update "Apparel" pill to link to `/apparel` using React Router `Link`
-
-5. **Modified: `src/components/FeaturedCategories.tsx`**
-   - Update the "View Category" link for Apparel to navigate to `/apparel` using React Router `Link`
+**4. Modified: `src/data/subcategories.ts`**
+- Add services subcategory data entries so the subcategory pages render content for each service
 
 ### Technical details
-- Uses `react-router-dom` `Link` for client-side navigation
-- Follows existing design patterns: serif headings, sans-serif body, border dividers, monochrome palette
-- Genre cards use a clean grid layout with `border` styling consistent with the rest of the site
+- Follows the exact same dropdown pattern used for Apparel, Jewellery, Toys & Games, and Packaging
+- Services items use standard `Link` navigation to `/services/:slug` routes
+- Mobile menu uses the same accordion expand/collapse pattern with `ChevronDown` rotation
+- Dropdown has `bg-background`, `border`, `shadow-md`, and `z-50` for proper visibility
+
