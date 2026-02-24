@@ -63,7 +63,16 @@ const packagingSubcategories = [
   { label: "Custom Branding & Private Label Packaging", slug: "custom-branding-private-label" },
 ];
 
-type Parent = "apparel" | "jewellery" | "toys-games" | "packaging";
+const servicesSubcategories = [
+  { label: "Brand Building & Consulting", slug: "brand-building-consulting" },
+  { label: "Market Research & Trend Forecasting Services", slug: "market-research-trend-forecasting" },
+  { label: "Product Development & Prototyping Services", slug: "product-development-prototyping" },
+  { label: "Social Media Creatives & E-Commerce Marketing Services", slug: "social-media-ecommerce-marketing" },
+  { label: "Strategic Management in International Business", slug: "strategic-management-international" },
+  { label: "Fashion Tech Packs & Management", slug: "fashion-tech-packs" },
+];
+
+type Parent = "apparel" | "jewellery" | "toys-games" | "packaging" | "services";
 
 // Hook that safely returns setView only when on the homepage (ViewProvider present)
 const useSafeView = () => {
@@ -80,6 +89,7 @@ const Navbar = () => {
   const [jewelleryOpen, setJewelleryOpen] = useState(false);
   const [toysOpen, setToysOpen] = useState(false);
   const [packagingOpen, setPackagingOpen] = useState(false);
+  const [servicesOpen, setServicesOpen] = useState(false);
   const location = useLocation();
   const viewCtx = useSafeView();
   const isHome = location.pathname === "/";
@@ -193,6 +203,24 @@ const Navbar = () => {
                 {categoryTrigger("Packaging", "packaging")}
                 <DropdownMenuContent align="start" className="bg-background border border-border shadow-md z-50 min-w-[300px]">
                   {packagingSubcategories.map((sub) => subcategoryItem(sub, "packaging"))}
+                </DropdownMenuContent>
+              </DropdownMenu>
+            </li>
+
+            <li>
+              <DropdownMenu>
+                {categoryTrigger("Services", "services")}
+                <DropdownMenuContent align="start" className="bg-background border border-border shadow-md z-50 min-w-[340px]">
+                  {servicesSubcategories.map((sub) => (
+                    <DropdownMenuItem key={sub.slug} asChild>
+                      <Link
+                        to={`/services/${sub.slug}`}
+                        className="cursor-pointer text-sm text-foreground/80 hover:text-foreground px-3 py-2"
+                      >
+                        {sub.label}
+                      </Link>
+                    </DropdownMenuItem>
+                  ))}
                 </DropdownMenuContent>
               </DropdownMenu>
             </li>
@@ -352,6 +380,31 @@ const Navbar = () => {
                           {sub.label}
                         </Link>
                       )}
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </li>
+
+            {/* Services */}
+            <li>
+              <button
+                onClick={() => setServicesOpen(!servicesOpen)}
+                className="flex items-center gap-1 text-muted-foreground hover:text-foreground transition-colors w-full text-left"
+              >
+                Services <ChevronDown size={14} className={`transition-transform ${servicesOpen ? "rotate-180" : ""}`} />
+              </button>
+              {servicesOpen && (
+                <ul className="mt-2 ml-4 space-y-2">
+                  {servicesSubcategories.map((sub) => (
+                    <li key={sub.slug}>
+                      <Link
+                        to={`/services/${sub.slug}`}
+                        className="text-muted-foreground hover:text-foreground transition-colors text-xs"
+                        onClick={() => setOpen(false)}
+                      >
+                        {sub.label}
+                      </Link>
                     </li>
                   ))}
                 </ul>
