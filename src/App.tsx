@@ -27,6 +27,7 @@ const App = () => (
           <Route path="/jewellery/:slug" element={<SubcategoryPage parent="jewellery" />} />
           <Route path="/toys-games" element={<ToysGames />} />
           <Route path="/toys-games/:slug" element={<SubcategoryPage parent="toys-games" />} />
+          <Route path="/services/:slug" element={<SubcategoryPage parent="services" />} />
           <Route path="/quote" element={<Quote />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />

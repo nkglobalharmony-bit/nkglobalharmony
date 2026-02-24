@@ -1,6 +1,6 @@
 import { createContext, useContext, useState, ReactNode } from "react";
 
-export type ParentCategory = "apparel" | "jewellery" | "toys-games" | "packaging";
+export type ParentCategory = "apparel" | "jewellery" | "toys-games" | "packaging" | "services";
 
 export type ViewState =
   | { type: "home" }

@@ -1,10 +1,10 @@
-import { Briefcase, Shirt, Dumbbell, HardHat, Baby, Gem, Tag, Leaf, Palette, Crown, Sparkles, BookOpen, Blocks, Rabbit, Puzzle, TreePine, Trophy, Gamepad2 } from "lucide-react";
+import { Briefcase, Shirt, Dumbbell, HardHat, Baby, Gem, Tag, Leaf, Palette, Crown, Sparkles, BookOpen, Blocks, Rabbit, Puzzle, TreePine, Trophy, Gamepad2, Lightbulb, TrendingUp, Box, Megaphone, Globe, FileText } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
 export interface SubcategoryData {
   title: string;
   slug: string;
-  parent: "apparel" | "jewellery" | "toys-games";
+  parent: "apparel" | "jewellery" | "toys-games" | "services";
   parentLabel: string;
   description: string;
   longDescription: string;
@@ -379,4 +379,107 @@ const toysGamesEntries: SubcategoryData[] = [
 ];
 
 subcategories.push(...toysGamesEntries);
+
+// ─── Services ──────────────────────────────────────────────────────────────
+const servicesEntries: SubcategoryData[] = [
+  {
+    title: "Brand Building & Consulting",
+    slug: "brand-building-consulting",
+    parent: "services",
+    parentLabel: "Services",
+    icon: Lightbulb,
+    description: "Strategic brand development and consulting services to position your label for global success.",
+    longDescription:
+      "From market entry strategy to visual identity and brand architecture, our consulting team helps emerging and established brands build lasting commercial presence across international markets.",
+    highlights: [
+      { heading: "Brand Strategy & Positioning", body: "Market analysis, competitive benchmarking, and positioning frameworks tailored to your target demographics." },
+      { heading: "Visual Identity Development", body: "Logo design, brand guidelines, colour palettes, and typography systems for cohesive brand expression." },
+      { heading: "Market Entry Planning", body: "Go-to-market strategies for new geographies including pricing, distribution, and regulatory guidance." },
+      { heading: "Brand Audit & Refresh", body: "Comprehensive review of existing brand assets with actionable recommendations for modernisation." },
+    ],
+  },
+  {
+    title: "Market Research & Trend Forecasting Services",
+    slug: "market-research-trend-forecasting",
+    parent: "services",
+    parentLabel: "Services",
+    icon: TrendingUp,
+    description: "Data-driven market intelligence and trend forecasting to keep your brand ahead of the curve.",
+    longDescription:
+      "Our research and forecasting team delivers actionable insights on consumer behaviour, market sizing, competitive landscapes, and emerging trends — empowering confident product and business decisions.",
+    highlights: [
+      { heading: "Consumer Insights", body: "Qualitative and quantitative research on target demographics, purchasing habits, and brand perception." },
+      { heading: "Trend Forecasting", body: "Seasonal and macro trend reports covering colour, material, silhouette, and lifestyle directions." },
+      { heading: "Competitive Analysis", body: "Detailed competitor benchmarking across pricing, product range, and market positioning." },
+      { heading: "Market Sizing & Opportunity", body: "Data-backed market sizing reports to validate new product lines and geographic expansion." },
+    ],
+  },
+  {
+    title: "Product Development & Prototyping Services",
+    slug: "product-development-prototyping",
+    parent: "services",
+    parentLabel: "Services",
+    icon: Box,
+    description: "End-to-end product development from concept sketches to production-ready prototypes and samples.",
+    longDescription:
+      "Transform ideas into market-ready products with our full-service development and prototyping capability — covering design, material sourcing, sampling, and pre-production testing across all categories.",
+    highlights: [
+      { heading: "Concept Development", body: "Collaborative design sessions to translate briefs into detailed product concepts and specifications." },
+      { heading: "Rapid Prototyping", body: "Fast-turnaround prototypes using 3D printing, pattern cutting, and handcraft techniques." },
+      { heading: "Material Sourcing", body: "Global fabric and component sourcing with sustainability and compliance screening." },
+      { heading: "Pre-Production Testing", body: "Fit, function, and safety testing before bulk manufacturing sign-off." },
+    ],
+  },
+  {
+    title: "Social Media Creatives & E-Commerce Marketing Services",
+    slug: "social-media-ecommerce-marketing",
+    parent: "services",
+    parentLabel: "Services",
+    icon: Megaphone,
+    description: "Scroll-stopping social content and e-commerce marketing assets designed to drive sales and engagement.",
+    longDescription:
+      "Our creative team produces high-converting visual content for social media platforms and e-commerce channels — from product photography and video to ad creatives and listing optimisation.",
+    highlights: [
+      { heading: "Product Photography", body: "Studio and lifestyle product shoots optimised for e-commerce listings and social media." },
+      { heading: "Social Media Content", body: "Platform-specific visual content for Instagram, TikTok, Pinterest, and Facebook campaigns." },
+      { heading: "Ad Creative Production", body: "Performance-focused ad creatives designed for conversion across paid social and display." },
+      { heading: "Listing Optimisation", body: "SEO-driven product titles, descriptions, and A+ content for Amazon, Shopify, and marketplace listings." },
+    ],
+  },
+  {
+    title: "Strategic Management in International Business",
+    slug: "strategic-management-international",
+    parent: "services",
+    parentLabel: "Services",
+    icon: Globe,
+    description: "Expert guidance on international trade, compliance, logistics, and cross-border business operations.",
+    longDescription:
+      "Navigate the complexities of international trade with our strategic management services — covering regulatory compliance, supply chain optimisation, trade finance, and cross-cultural business operations.",
+    highlights: [
+      { heading: "Trade Compliance", body: "Import/export regulation guidance, tariff classification, and customs documentation support." },
+      { heading: "Supply Chain Optimisation", body: "End-to-end supply chain mapping, cost reduction strategies, and vendor management." },
+      { heading: "International Logistics", body: "Freight forwarding coordination, Incoterms advisory, and shipping route optimisation." },
+      { heading: "Cross-Border Strategy", body: "Market entry frameworks, joint venture advisory, and international partnership development." },
+    ],
+  },
+  {
+    title: "Fashion Tech Packs & Management",
+    slug: "fashion-tech-packs",
+    parent: "services",
+    parentLabel: "Services",
+    icon: FileText,
+    description: "Professional tech pack creation and production management services for fashion and apparel brands.",
+    longDescription:
+      "Our tech pack and production management service bridges the gap between design and manufacturing — delivering factory-ready specification documents and hands-on production oversight for apparel brands of all sizes.",
+    highlights: [
+      { heading: "Tech Pack Creation", body: "Detailed specification documents including flat sketches, measurements, BOM, and construction notes." },
+      { heading: "Grading & Size Charts", body: "Professional grading across international sizing systems with detailed measurement charts." },
+      { heading: "Production Management", body: "On-the-ground factory coordination, timeline management, and quality checkpoints." },
+      { heading: "Sample Tracking", body: "End-to-end sample tracking from proto through to pre-production with revision management." },
+    ],
+  },
+];
+
+subcategories.push(...servicesEntries);
+
 
