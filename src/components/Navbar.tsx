@@ -9,62 +9,54 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
-// ViewContext is optional — only used on the homepage
-let useViewSafe: (() => { setView: (v: unknown) => void } | null) | null = null;
-try {
-  // Dynamic import to avoid crashing on pages without the provider
-  useViewSafe = require("@/context/ViewContext").useView;
-} catch {
-  useViewSafe = null;
-}
-
 import { useView } from "@/context/ViewContext";
 
+const aboutUsLinks = [
+  { label: "About Us", slug: "about" },
+  { label: "Categories", slug: "categories" },
+  { label: "Why Choose Us", slug: "why-choose-us" },
+  { label: "Our USPs", slug: "our-usps" },
+  { label: "Global Connections", slug: "global-connections" },
+  { label: "Certifications", slug: "certifications" },
+];
+
 const apparelSubcategories = [
-  { label: "Menswear", slug: "menswear" },
-  { label: "Womenswear", slug: "womenswear" },
-  { label: "Kidswear", slug: "kidswear" },
-  { label: "Ethnic & Occasion Wear", slug: "ethnic-occasion-wear" },
-  { label: "Activewear & Athleisure", slug: "activewear-athleisure" },
-  { label: "Workwear & Uniforms", slug: "workwear-uniforms" },
-  { label: "Private Label Production", slug: "private-label-production" },
-  { label: "Custom Sampling & Bulk Manufacturing", slug: "custom-sampling-bulk" },
-  { label: "Organic & Sustainable Fabric Options", slug: "organic-sustainable" },
+  { label: "Women's Wear", slug: "womenswear" },
+  { label: "Men's Wear", slug: "menswear" },
+  { label: "Kids Wear", slug: "kidswear" },
+  { label: "Unisex", slug: "unisex" },
+  { label: "Industrial", slug: "industrial" },
 ];
 
 const jewellerySubcategories = [
-  { label: "925 Sterling Silver Jewellery", slug: "sterling-silver" },
-  { label: "Gold & Platinum Jewellery", slug: "gold-platinum" },
-  { label: "Trend-Driven Fashion Jewellery", slug: "fashion-jewellery" },
-  { label: "Lab-Grown Diamonds & Gemstones", slug: "lab-grown" },
-  { label: "Private Label Jewellery Production", slug: "private-label" },
-  { label: "Custom Design Development & Sampling Support", slug: "custom-design" },
+  { label: "American Diamonds", slug: "american-diamonds" },
+  { label: "Indo Western", slug: "indo-western" },
+  { label: "Kundan", slug: "kundan" },
+  { label: "Oxidised", slug: "oxidised" },
+  { label: "Pearls", slug: "pearls" },
+  { label: "Antique", slug: "antique" },
+  { label: "Fashion Jewellery", slug: "fashion-jewellery" },
 ];
 
 const toysGamesSubcategories = [
-  { label: "Educational Toys", slug: "educational-toys" },
-  { label: "Board Games", slug: "board-games" },
-  { label: "Dolls & Soft Toys", slug: "dolls-soft-toys" },
-  { label: "Puzzles", slug: "puzzles" },
-  { label: "Outdoor Toys", slug: "outdoor-toys" },
-  { label: "Sports Accessories & Equipment", slug: "sports-accessories" },
-  { label: "Arcade Game Equipment", slug: "arcade-game-equipment" },
+  { label: "Top Brands", slug: "top-brands" },
+  { label: "Shop by Themes", slug: "shop-by-themes" },
+  { label: "Shop by Age", slug: "shop-by-age" },
+  { label: "Other Brands", slug: "other-brands" },
 ];
 
 const packagingSubcategories = [
-  { label: "Sustainable & Eco-Friendly", slug: "sustainable-eco-friendly" },
-  { label: "Corrugated Export Cartons", slug: "corrugated-export-cartons" },
-  { label: "Luxury Rigid Gift Boxes", slug: "luxury-rigid-gift-boxes" },
+  { label: "Sustainable / Eco-Friendly Packaging", slug: "sustainable-eco-friendly" },
   { label: "Custom Printed Paper Bags", slug: "custom-printed-paper-bags" },
-  { label: "Apparel Packaging", slug: "apparel-packaging" },
+  { label: "Corrugated Shipping Boxes", slug: "corrugated-export-cartons" },
+  { label: "Luxury Rigid Gift Boxes", slug: "luxury-rigid-gift-boxes" },
+  { label: "Apparel Packaging (Paper & Poly)", slug: "apparel-packaging" },
   { label: "Jewellery Packaging", slug: "jewellery-packaging" },
-  { label: "E-Commerce Mailer Packaging", slug: "ecommerce-mailer-packaging" },
-  { label: "Labels, Tags & Printed Branding Materials", slug: "labels-tags-branding" },
-  { label: "Custom Branding & Private Label Packaging", slug: "custom-branding-private-label" },
+  { label: "Labels & Printed Packaging Materials", slug: "labels-tags-branding" },
 ];
 
 const servicesSubcategories = [
-  { label: "Brand Building & Consulting", slug: "brand-building-consulting" },
+  { label: "Brand Building, Management & Consulting", slug: "brand-building-consulting" },
   { label: "Market Research & Trend Forecasting Services", slug: "market-research-trend-forecasting" },
   { label: "Product Development & Prototyping Services", slug: "product-development-prototyping" },
   { label: "Social Media Creatives & E-Commerce Marketing Services", slug: "social-media-ecommerce-marketing" },
@@ -72,9 +64,15 @@ const servicesSubcategories = [
   { label: "Fashion Tech Packs & Management", slug: "fashion-tech-packs" },
 ];
 
+const contactUsLinks = [
+  { label: "Contact #", path: "/contact" },
+  { label: "Email Us", path: "/contact#email" },
+  { label: "Get a Quote", path: "/quote" },
+  { label: "Partner with Us", path: "/contact#partner" },
+];
+
 type Parent = "apparel" | "jewellery" | "toys-games" | "packaging" | "services";
 
-// Hook that safely returns setView only when on the homepage (ViewProvider present)
 const useSafeView = () => {
   try {
     return useView();
@@ -85,11 +83,13 @@ const useSafeView = () => {
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
+  const [aboutOpen, setAboutOpen] = useState(false);
   const [apparelOpen, setApparelOpen] = useState(false);
   const [jewelleryOpen, setJewelleryOpen] = useState(false);
   const [toysOpen, setToysOpen] = useState(false);
   const [packagingOpen, setPackagingOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
+  const [contactOpen, setContactOpen] = useState(false);
   const location = useLocation();
   const viewCtx = useSafeView();
   const isHome = location.pathname === "/";
@@ -107,37 +107,62 @@ const Navbar = () => {
     }
   };
 
-  const categoryTrigger = (label: string, parent: Parent) => (
-    <DropdownMenuTrigger
-      onClick={() => handleCategory(parent)}
-      className="flex items-center gap-1 text-muted-foreground hover:text-foreground transition-colors outline-none"
-    >
-      {label} <ChevronDown size={14} />
-    </DropdownMenuTrigger>
+  const renderDropdown = (
+    label: string,
+    items: { label: string; slug: string }[],
+    basePath: string,
+    parent?: Parent
+  ) => (
+    <DropdownMenu>
+      <DropdownMenuTrigger className="flex items-center gap-1 text-muted-foreground hover:text-foreground transition-colors outline-none">
+        {label} <ChevronDown size={14} />
+      </DropdownMenuTrigger>
+      <DropdownMenuContent align="start" className="bg-background border border-border shadow-md z-50 min-w-[260px]">
+        {items.map((item) => (
+          <DropdownMenuItem key={item.slug} asChild>
+            <Link
+              to={`${basePath}/${item.slug}`}
+              className="cursor-pointer text-sm text-foreground/80 hover:text-foreground px-3 py-2"
+            >
+              {item.label}
+            </Link>
+          </DropdownMenuItem>
+        ))}
+      </DropdownMenuContent>
+    </DropdownMenu>
   );
 
-  const subcategoryItem = (
-    sub: { label: string; slug: string },
-    parent: Parent
-  ) =>
-    isHome ? (
-      <DropdownMenuItem
-        key={sub.slug}
-        onSelect={() => handleSubcategory(parent, sub.slug)}
-        className="cursor-pointer text-sm text-foreground/80 hover:text-foreground px-3 py-2"
+  const renderMobileAccordion = (
+    label: string,
+    isOpen: boolean,
+    toggle: () => void,
+    items: { label: string; slug?: string; path?: string }[],
+    basePath?: string
+  ) => (
+    <li>
+      <button
+        onClick={toggle}
+        className="flex items-center gap-1 text-muted-foreground hover:text-foreground transition-colors w-full text-left"
       >
-        {sub.label}
-      </DropdownMenuItem>
-    ) : (
-      <DropdownMenuItem key={sub.slug} asChild>
-        <Link
-          to={`/${parent}/${sub.slug}`}
-          className="cursor-pointer text-sm text-foreground/80 hover:text-foreground px-3 py-2"
-        >
-          {sub.label}
-        </Link>
-      </DropdownMenuItem>
-    );
+        {label} <ChevronDown size={14} className={`transition-transform ${isOpen ? "rotate-180" : ""}`} />
+      </button>
+      {isOpen && (
+        <ul className="mt-2 ml-4 space-y-2">
+          {items.map((item) => (
+            <li key={item.slug || item.path}>
+              <Link
+                to={item.path || `${basePath}/${item.slug}`}
+                className="text-muted-foreground hover:text-foreground transition-colors text-xs"
+                onClick={() => setOpen(false)}
+              >
+                {item.label}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      )}
+    </li>
+  );
 
   return (
     <header className="border-b border-border bg-background/95 backdrop-blur-sm shadow-sm sticky top-0 z-50">
@@ -153,8 +178,9 @@ const Navbar = () => {
         )}
 
         {/* Desktop nav */}
-        <nav className="hidden md:block">
-          <ul className="flex items-center gap-8 font-sans text-sm tracking-wide">
+        <nav className="hidden lg:block">
+          <ul className="flex items-center gap-6 font-sans text-sm tracking-wide">
+            <li>{renderDropdown("About Us", aboutUsLinks, "/about")}</li>
             <li>
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
@@ -165,7 +191,7 @@ const Navbar = () => {
                     Apparel <ChevronDown size={14} />
                   </Link>
                 </DropdownMenuTrigger>
-                <DropdownMenuContent align="start" className="bg-background border border-border shadow-md z-50 min-w-[240px]">
+                <DropdownMenuContent align="start" className="bg-background border border-border shadow-md z-50 min-w-[220px]">
                   {apparelSubcategories.map((sub) => (
                     <DropdownMenuItem key={sub.slug} asChild>
                       <Link
@@ -179,59 +205,28 @@ const Navbar = () => {
                 </DropdownMenuContent>
               </DropdownMenu>
             </li>
-
+            <li>{renderDropdown("Jewellery", jewellerySubcategories, "/jewellery")}</li>
+            <li>{renderDropdown("Games & Toys", toysGamesSubcategories, "/toys-games")}</li>
+            <li>{renderDropdown("Packaging", packagingSubcategories, "/packaging")}</li>
+            <li>{renderDropdown("Services", servicesSubcategories, "/services")}</li>
             <li>
               <DropdownMenu>
-                {categoryTrigger("Jewellery", "jewellery")}
-                <DropdownMenuContent align="start" className="bg-background border border-border shadow-md z-50 min-w-[280px]">
-                  {jewellerySubcategories.map((sub) => subcategoryItem(sub, "jewellery"))}
-                </DropdownMenuContent>
-              </DropdownMenu>
-            </li>
-
-            <li>
-              <DropdownMenu>
-                {categoryTrigger("Toys & Games", "toys-games")}
-                <DropdownMenuContent align="start" className="bg-background border border-border shadow-md z-50 min-w-[260px]">
-                  {toysGamesSubcategories.map((sub) => subcategoryItem(sub, "toys-games"))}
-                </DropdownMenuContent>
-              </DropdownMenu>
-            </li>
-
-            <li>
-              <DropdownMenu>
-                {categoryTrigger("Packaging", "packaging")}
-                <DropdownMenuContent align="start" className="bg-background border border-border shadow-md z-50 min-w-[300px]">
-                  {packagingSubcategories.map((sub) => subcategoryItem(sub, "packaging"))}
-                </DropdownMenuContent>
-              </DropdownMenu>
-            </li>
-
-            <li>
-              <DropdownMenu>
-                {categoryTrigger("Services", "services")}
-                <DropdownMenuContent align="start" className="bg-background border border-border shadow-md z-50 min-w-[340px]">
-                  {servicesSubcategories.map((sub) => (
-                    <DropdownMenuItem key={sub.slug} asChild>
+                <DropdownMenuTrigger className="flex items-center gap-1 text-muted-foreground hover:text-foreground transition-colors outline-none">
+                  Contact Us <ChevronDown size={14} />
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="end" className="bg-background border border-border shadow-md z-50 min-w-[200px]">
+                  {contactUsLinks.map((item) => (
+                    <DropdownMenuItem key={item.path} asChild>
                       <Link
-                        to={`/services/${sub.slug}`}
+                        to={item.path}
                         className="cursor-pointer text-sm text-foreground/80 hover:text-foreground px-3 py-2"
                       >
-                        {sub.label}
+                        {item.label}
                       </Link>
                     </DropdownMenuItem>
                   ))}
                 </DropdownMenuContent>
               </DropdownMenu>
-            </li>
-
-            <li>
-              <Link
-                to="/quote"
-                className="text-muted-foreground hover:text-foreground transition-colors"
-              >
-                Request a Quote
-              </Link>
             </li>
           </ul>
         </nav>
@@ -239,7 +234,7 @@ const Navbar = () => {
         {/* Mobile toggle */}
         <button
           onClick={() => setOpen(!open)}
-          className="text-foreground md:hidden"
+          className="text-foreground lg:hidden"
           aria-label="Toggle menu"
         >
           {open ? <X size={22} /> : <Menu size={22} />}
@@ -248,178 +243,18 @@ const Navbar = () => {
 
       {/* Mobile nav */}
       {open && (
-        <nav className="container border-t border-border py-6 animate-fade-in md:hidden">
+        <nav className="container border-t border-border py-6 animate-fade-in lg:hidden">
           <ul className="space-y-4 font-sans text-sm tracking-wide">
-            {/* Apparel */}
-            <li>
-              <button
-                onClick={() => setApparelOpen(!apparelOpen)}
-                className="flex items-center gap-1 text-muted-foreground hover:text-foreground transition-colors w-full text-left"
-              >
-                Apparel <ChevronDown size={14} className={`transition-transform ${apparelOpen ? "rotate-180" : ""}`} />
-              </button>
-              {apparelOpen && (
-                <ul className="mt-2 ml-4 space-y-2">
-                  <li>
-                    <Link
-                      to="/apparel"
-                      className="text-muted-foreground hover:text-foreground transition-colors text-xs font-medium"
-                      onClick={() => setOpen(false)}
-                    >
-                      View All Apparel
-                    </Link>
-                  </li>
-                  {apparelSubcategories.map((sub) => (
-                    <li key={sub.slug}>
-                      <Link
-                        to={`/apparel/${sub.slug}`}
-                        className="text-muted-foreground hover:text-foreground transition-colors text-xs"
-                        onClick={() => setOpen(false)}
-                      >
-                        {sub.label}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </li>
-
-            {/* Jewellery */}
-            <li>
-              <button
-                onClick={() => { setJewelleryOpen(!jewelleryOpen); handleCategory("jewellery"); }}
-                className="flex items-center gap-1 text-muted-foreground hover:text-foreground transition-colors w-full text-left"
-              >
-                Jewellery <ChevronDown size={14} className={`transition-transform ${jewelleryOpen ? "rotate-180" : ""}`} />
-              </button>
-              {jewelleryOpen && (
-                <ul className="mt-2 ml-4 space-y-2">
-                  {jewellerySubcategories.map((sub) => (
-                    <li key={sub.slug}>
-                      {isHome ? (
-                        <button
-                          onClick={() => handleSubcategory("jewellery", sub.slug)}
-                          className="text-muted-foreground hover:text-foreground transition-colors text-xs text-left"
-                        >
-                          {sub.label}
-                        </button>
-                      ) : (
-                        <Link
-                          to={`/jewellery/${sub.slug}`}
-                          className="text-muted-foreground hover:text-foreground transition-colors text-xs"
-                          onClick={() => setOpen(false)}
-                        >
-                          {sub.label}
-                        </Link>
-                      )}
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </li>
-
-            {/* Toys & Games */}
-            <li>
-              <button
-                onClick={() => { setToysOpen(!toysOpen); handleCategory("toys-games"); }}
-                className="flex items-center gap-1 text-muted-foreground hover:text-foreground transition-colors w-full text-left"
-              >
-                Toys &amp; Games <ChevronDown size={14} className={`transition-transform ${toysOpen ? "rotate-180" : ""}`} />
-              </button>
-              {toysOpen && (
-                <ul className="mt-2 ml-4 space-y-2">
-                  {toysGamesSubcategories.map((sub) => (
-                    <li key={sub.slug}>
-                      {isHome ? (
-                        <button
-                          onClick={() => handleSubcategory("toys-games", sub.slug)}
-                          className="text-muted-foreground hover:text-foreground transition-colors text-xs text-left"
-                        >
-                          {sub.label}
-                        </button>
-                      ) : (
-                        <Link
-                          to={`/toys-games/${sub.slug}`}
-                          className="text-muted-foreground hover:text-foreground transition-colors text-xs"
-                          onClick={() => setOpen(false)}
-                        >
-                          {sub.label}
-                        </Link>
-                      )}
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </li>
-
-            {/* Packaging */}
-            <li>
-              <button
-                onClick={() => { setPackagingOpen(!packagingOpen); handleCategory("packaging"); }}
-                className="flex items-center gap-1 text-muted-foreground hover:text-foreground transition-colors w-full text-left"
-              >
-                Packaging <ChevronDown size={14} className={`transition-transform ${packagingOpen ? "rotate-180" : ""}`} />
-              </button>
-              {packagingOpen && (
-                <ul className="mt-2 ml-4 space-y-2">
-                  {packagingSubcategories.map((sub) => (
-                    <li key={sub.slug}>
-                      {isHome ? (
-                        <button
-                          onClick={() => handleSubcategory("packaging", sub.slug)}
-                          className="text-muted-foreground hover:text-foreground transition-colors text-xs text-left"
-                        >
-                          {sub.label}
-                        </button>
-                      ) : (
-                        <Link
-                          to={`/packaging/${sub.slug}`}
-                          className="text-muted-foreground hover:text-foreground transition-colors text-xs"
-                          onClick={() => setOpen(false)}
-                        >
-                          {sub.label}
-                        </Link>
-                      )}
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </li>
-
-            {/* Services */}
-            <li>
-              <button
-                onClick={() => setServicesOpen(!servicesOpen)}
-                className="flex items-center gap-1 text-muted-foreground hover:text-foreground transition-colors w-full text-left"
-              >
-                Services <ChevronDown size={14} className={`transition-transform ${servicesOpen ? "rotate-180" : ""}`} />
-              </button>
-              {servicesOpen && (
-                <ul className="mt-2 ml-4 space-y-2">
-                  {servicesSubcategories.map((sub) => (
-                    <li key={sub.slug}>
-                      <Link
-                        to={`/services/${sub.slug}`}
-                        className="text-muted-foreground hover:text-foreground transition-colors text-xs"
-                        onClick={() => setOpen(false)}
-                      >
-                        {sub.label}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </li>
-
-            <li>
-              <Link
-                to="/quote"
-                className="text-muted-foreground hover:text-foreground transition-colors"
-                onClick={() => setOpen(false)}
-              >
-                Request a Quote
-              </Link>
-            </li>
+            {renderMobileAccordion("About Us", aboutOpen, () => setAboutOpen(!aboutOpen), aboutUsLinks, "/about")}
+            {renderMobileAccordion("Apparel", apparelOpen, () => setApparelOpen(!apparelOpen), [
+              { label: "View All Apparel", path: "/apparel" },
+              ...apparelSubcategories.map(s => ({ ...s, path: undefined })),
+            ], "/apparel")}
+            {renderMobileAccordion("Jewellery", jewelleryOpen, () => setJewelleryOpen(!jewelleryOpen), jewellerySubcategories, "/jewellery")}
+            {renderMobileAccordion("Games & Toys", toysOpen, () => setToysOpen(!toysOpen), toysGamesSubcategories, "/toys-games")}
+            {renderMobileAccordion("Packaging", packagingOpen, () => setPackagingOpen(!packagingOpen), packagingSubcategories, "/packaging")}
+            {renderMobileAccordion("Services", servicesOpen, () => setServicesOpen(!servicesOpen), servicesSubcategories, "/services")}
+            {renderMobileAccordion("Contact Us", contactOpen, () => setContactOpen(!contactOpen), contactUsLinks)}
           </ul>
         </nav>
       )}

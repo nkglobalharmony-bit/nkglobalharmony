@@ -1,46 +1,17 @@
 import { Link } from "react-router-dom";
-import { ArrowLeft, ArrowRight, Gem, Crown, Sparkles, Leaf, Tag, Palette } from "lucide-react";
+import { ArrowLeft, Gem, Crown, Sparkles } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import heroImg from "@/assets/hero-jewellery.jpg";
 
 const subcategories = [
-  {
-    title: "925 Sterling Silver Jewellery",
-    slug: "sterling-silver",
-    description: "High-quality sterling silver pieces crafted for global retail — rings, necklaces, bracelets, and earrings.",
-    icon: Gem,
-  },
-  {
-    title: "Gold & Platinum Jewellery",
-    slug: "gold-platinum",
-    description: "Luxurious gold and platinum collections spanning fine jewellery for bridal, gifting, and investment markets.",
-    icon: Crown,
-  },
-  {
-    title: "Trend-Driven Fashion Jewellery",
-    slug: "fashion-jewellery",
-    description: "Mass market and retail-ready fashion jewellery aligned with global trend forecasts and seasonal collections.",
-    icon: Sparkles,
-  },
-  {
-    title: "Lab-Grown Diamonds & Gemstones",
-    slug: "lab-grown",
-    description: "Ethically produced lab-grown diamonds and certified gemstones for modern, conscious luxury buyers.",
-    icon: Gem,
-  },
-  {
-    title: "Private Label Jewellery Production",
-    slug: "private-label",
-    description: "End-to-end private label manufacturing — design, sampling, production, and packaging under your brand.",
-    icon: Tag,
-  },
-  {
-    title: "Custom Design Development & Sampling Support",
-    slug: "custom-design",
-    description: "Bespoke design services from concept to prototype, with full sampling support for retail and wholesale buyers.",
-    icon: Palette,
-  },
+  { title: "American Diamonds", slug: "american-diamonds", description: "High-quality American diamond jewellery crafted for brilliance and affordability.", icon: Gem },
+  { title: "Indo Western", slug: "indo-western", description: "Fusion jewellery blending Indian craftsmanship with contemporary Western design aesthetics.", icon: Crown },
+  { title: "Kundan", slug: "kundan", description: "Traditional Kundan jewellery featuring uncut gemstones set in gold foil — a heritage art form.", icon: Sparkles },
+  { title: "Oxidised", slug: "oxidised", description: "Vintage-inspired oxidised silver jewellery with rustic charm and artisanal character.", icon: Gem },
+  { title: "Pearls", slug: "pearls", description: "Elegant pearl jewellery featuring freshwater, cultured, and baroque pearls.", icon: Sparkles },
+  { title: "Antique", slug: "antique", description: "Antique-finish jewellery with heritage designs inspired by Mughal, Victorian, and temple traditions.", icon: Crown },
+  { title: "Fashion Jewellery", slug: "fashion-jewellery", description: "Trend-driven fashion jewellery for mass market retail aligned with global seasonal collections.", icon: Sparkles },
 ];
 
 const Jewellery = () => (
@@ -67,9 +38,9 @@ const Jewellery = () => (
       <section>
         <div className="container py-12 md:py-16">
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed">
-            Precision-crafted jewellery for global markets. From sterling silver
-            essentials to bespoke fine jewellery — we source, design, and export
-            across every category.
+            Precision-crafted jewellery for global markets. From American diamonds
+            to traditional Kundan and antique heritage pieces — we source, design,
+            and export across every category.
           </p>
         </div>
       </section>

@@ -15,23 +15,7 @@ export interface SubcategoryData {
 export const subcategories: SubcategoryData[] = [
   // ─── Apparel ───────────────────────────────────────────────────────────────
   {
-    title: "Menswear",
-    slug: "menswear",
-    parent: "apparel",
-    parentLabel: "Apparel",
-    icon: Briefcase,
-    description: "Tailored and casual garments designed for the modern man across every market segment.",
-    longDescription:
-      "From sharp suiting to everyday essentials, our menswear range covers the full spectrum of male fashion — crafted for retail, wholesale, and private label buyers worldwide.",
-    highlights: [
-      { heading: "Formal & Business Wear", body: "Tailored suits, blazers, dress shirts, and trousers for corporate and occasion markets." },
-      { heading: "Casual & Streetwear", body: "T-shirts, hoodies, denim, and knitwear aligned with global trend forecasts." },
-      { heading: "Seasonal Collections", body: "Spring/Summer and Autumn/Winter lines built to retail calendar requirements." },
-      { heading: "Size Inclusivity", body: "Extended sizing available across all categories for diverse global markets." },
-    ],
-  },
-  {
-    title: "Womenswear",
+    title: "Women's Wear",
     slug: "womenswear",
     parent: "apparel",
     parentLabel: "Apparel",
@@ -47,7 +31,23 @@ export const subcategories: SubcategoryData[] = [
     ],
   },
   {
-    title: "Kidswear",
+    title: "Men's Wear",
+    slug: "menswear",
+    parent: "apparel",
+    parentLabel: "Apparel",
+    icon: Briefcase,
+    description: "Tailored and casual garments designed for the modern man across every market segment.",
+    longDescription:
+      "From sharp suiting to everyday essentials, our menswear range covers the full spectrum of male fashion — crafted for retail, wholesale, and private label buyers worldwide.",
+    highlights: [
+      { heading: "Formal & Business Wear", body: "Tailored suits, blazers, dress shirts, and trousers for corporate and occasion markets." },
+      { heading: "Casual & Streetwear", body: "T-shirts, hoodies, denim, and knitwear aligned with global trend forecasts." },
+      { heading: "Seasonal Collections", body: "Spring/Summer and Autumn/Winter lines built to retail calendar requirements." },
+      { heading: "Size Inclusivity", body: "Extended sizing available across all categories for diverse global markets." },
+    ],
+  },
+  {
+    title: "Kids Wear",
     slug: "kidswear",
     parent: "apparel",
     parentLabel: "Apparel",
@@ -63,142 +63,142 @@ export const subcategories: SubcategoryData[] = [
     ],
   },
   {
-    title: "Ethnic & Occasion Wear",
-    slug: "ethnic-occasion-wear",
+    title: "Unisex",
+    slug: "unisex",
     parent: "apparel",
     parentLabel: "Apparel",
-    icon: Gem,
-    description: "Cultural garments and occasion wear crafted with heritage techniques for global distribution.",
+    icon: Shirt,
+    description: "Gender-neutral apparel designed for versatility, comfort, and broad market appeal.",
     longDescription:
-      "Celebrating the richness of global textile traditions, our ethnic and occasion wear category spans bridal, festive, and cultural garments — handcrafted and machine-finished for international buyers.",
+      "Our unisex range embraces inclusive fashion with relaxed silhouettes and universal sizing — perfect for brands targeting modern, gender-fluid consumers and corporate uniform programs.",
     highlights: [
-      { heading: "Bridal & Festive Wear", body: "Embroidered and embellished garments for weddings and celebrations." },
-      { heading: "South Asian Ethnic Wear", body: "Sarees, salwar kameez, lehengas, and sherwanis in a range of fabrics." },
-      { heading: "Middle Eastern Styles", body: "Abayas, kaftans, and jalabiya for retail and wholesale buyers." },
-      { heading: "Custom Cultural Orders", body: "Bespoke cultural garments developed to buyer specification." },
+      { heading: "Universal Sizing", body: "Size-inclusive ranges designed to fit all body types with comfort and style." },
+      { heading: "Casual Essentials", body: "T-shirts, hoodies, joggers, and outerwear in gender-neutral cuts." },
+      { heading: "Corporate & Uniform", body: "Branded workwear and uniform solutions in unisex sizing systems." },
+      { heading: "Sustainable Options", body: "Organic cotton and recycled fabric options available across all styles." },
     ],
   },
   {
-    title: "Activewear & Athleisure",
-    slug: "activewear-athleisure",
-    parent: "apparel",
-    parentLabel: "Apparel",
-    icon: Dumbbell,
-    description: "Performance-driven athletic and leisure apparel with technical fabrics and modern fits.",
-    longDescription:
-      "Our activewear range combines performance engineering with contemporary design — ideal for sports brands, gym chains, and athleisure retailers looking for quality bulk production.",
-    highlights: [
-      { heading: "Technical Fabrics", body: "Moisture-wicking, anti-odour, and four-way stretch materials built for performance." },
-      { heading: "Gym & Training Wear", body: "Leggings, sports bras, shorts, and tops for fitness and training markets." },
-      { heading: "Outdoor & Sports", body: "Running, cycling, and outdoor apparel with UV protection and weather resistance." },
-      { heading: "Athleisure Lifestyle", body: "Trend-led casual sportswear bridging gym and everyday fashion." },
-    ],
-  },
-  {
-    title: "Workwear & Uniforms",
-    slug: "workwear-uniforms",
+    title: "Industrial",
+    slug: "industrial",
     parent: "apparel",
     parentLabel: "Apparel",
     icon: HardHat,
-    description: "Industrial, hospitality, and corporate uniform solutions built for durability and branding.",
+    description: "Industrial workwear, PPE, and protective garments built for demanding environments.",
     longDescription:
-      "From hi-vis construction wear to refined hospitality uniforms, our workwear range delivers consistent quality at scale — with custom branding and embroidery options available.",
+      "From hi-vis construction wear to flame-resistant industrial garments, our industrial range delivers consistent quality at scale — with custom branding and safety compliance built in.",
     highlights: [
       { heading: "Industrial & PPE", body: "Hi-visibility, flame-resistant, and protective workwear for demanding environments." },
-      { heading: "Hospitality Uniforms", body: "Front-of-house and kitchen wear for hotels, restaurants, and airlines." },
-      { heading: "Corporate Branding", body: "Branded uniforms with embroidery, screen print, and woven labels." },
+      { heading: "Safety Compliance", body: "All garments meet international EN, ANSI, and OSHA safety standards." },
+      { heading: "Custom Branding", body: "Branded workwear with embroidery, screen print, and woven labels." },
       { heading: "Healthcare Garments", body: "Scrubs, lab coats, and medical uniforms to hygiene standards." },
-    ],
-  },
-  {
-    title: "Private Label Production",
-    slug: "private-label-production",
-    parent: "apparel",
-    parentLabel: "Apparel",
-    icon: Tag,
-    description: "End-to-end private label manufacturing under your brand — from design to delivery.",
-    longDescription:
-      "Launch or scale your apparel brand with our comprehensive private label service. We handle every step from concept and sampling through to bulk production and export-ready packaging.",
-    highlights: [
-      { heading: "Design Development", body: "In-house design and tech pack creation aligned with your brand identity." },
-      { heading: "Sampling & Prototyping", body: "Rapid sample turnaround with multiple revision rounds before bulk sign-off." },
-      { heading: "Bulk Manufacturing", body: "MOQ-flexible production across wovens, knits, denim, and performance fabrics." },
-      { heading: "Brand Packaging", body: "Custom swing tags, labels, and packaging designed to your specification." },
-    ],
-  },
-  {
-    title: "Custom Sampling & Bulk Manufacturing",
-    slug: "custom-sampling-bulk",
-    parent: "apparel",
-    parentLabel: "Apparel",
-    icon: HardHat,
-    description: "From first prototype to full bulk run — flexible manufacturing with low minimum order quantities.",
-    longDescription:
-      "Whether you're a startup testing your first collection or an established brand scaling up, our sampling and bulk manufacturing service is built for speed, accuracy, and flexibility.",
-    highlights: [
-      { heading: "Low MOQ Options", body: "Minimum order quantities starting from 50 units per style for new brands." },
-      { heading: "Sample Accuracy", body: "High-fidelity samples that match bulk production quality and specifications." },
-      { heading: "Fast Turnaround", body: "Sample delivery within 2–3 weeks and bulk lead times from 45 days." },
-      { heading: "Full Traceability", body: "End-to-end production tracking with regular quality control checkpoints." },
-    ],
-  },
-  {
-    title: "Organic & Sustainable Fabric Options",
-    slug: "organic-sustainable",
-    parent: "apparel",
-    parentLabel: "Apparel",
-    icon: Leaf,
-    description: "Eco-conscious fabric sourcing including GOTS-certified organic cotton, recycled fibres, and natural dyes.",
-    longDescription:
-      "Sustainability is no longer optional. We source and supply certified organic, recycled, and low-impact fabrics to help brands meet growing consumer and regulatory expectations.",
-    highlights: [
-      { heading: "GOTS Certified Cotton", body: "Globally certified organic cotton across jerseys, wovens, and blended fabrics." },
-      { heading: "Recycled Synthetics", body: "rPET and recycled nylon options for activewear and outerwear." },
-      { heading: "Natural Dyes", body: "Plant-based and low-impact dyeing processes to reduce chemical waste." },
-      { heading: "Sustainability Reporting", body: "Full supply chain transparency documentation for ESG and brand reporting." },
     ],
   },
 
   // ─── Jewellery ─────────────────────────────────────────────────────────────
   {
-    title: "925 Sterling Silver Jewellery",
-    slug: "sterling-silver",
+    title: "American Diamonds",
+    slug: "american-diamonds",
     parent: "jewellery",
     parentLabel: "Jewellery",
     icon: Gem,
-    description: "High-quality 925 sterling silver pieces crafted for global retail — rings, necklaces, bracelets, and earrings.",
+    description: "High-quality American diamond jewellery crafted for brilliance and affordability.",
     longDescription:
-      "Our sterling silver range combines fine craftsmanship with accessible luxury, designed for retail buyers and wholesale distributors seeking consistent quality at competitive price points.",
+      "Our American diamond collection offers the sparkle and elegance of fine jewellery at accessible price points — ideal for retail, wholesale, and online buyers seeking premium CZ jewellery.",
     highlights: [
-      { heading: "Hallmarked & Certified", body: "All pieces stamped 925 with internationally recognised hallmarks and certification." },
-      { heading: "Full Jewellery Range", body: "Rings, necklaces, bracelets, earrings, and anklets across classic and contemporary styles." },
-      { heading: "Rhodium & Plating Options", body: "Rhodium, gold, and rose gold plating available for extended finish options." },
-      { heading: "Retail-Ready Packaging", body: "Polished packaging with brand customisation options for retail deployment." },
+      { heading: "Premium CZ Stones", body: "AAA-grade cubic zirconia stones with diamond-like brilliance and fire." },
+      { heading: "Full Range", body: "Rings, necklaces, bracelets, earrings, and sets in contemporary and classic designs." },
+      { heading: "Plating Options", body: "Gold, rose gold, rhodium, and silver plating for diverse market preferences." },
+      { heading: "Retail-Ready", body: "Polished packaging with customisation options for retail and e-commerce." },
     ],
   },
   {
-    title: "Gold & Platinum Jewellery",
-    slug: "gold-platinum",
+    title: "Indo Western",
+    slug: "indo-western",
     parent: "jewellery",
     parentLabel: "Jewellery",
     icon: Crown,
-    description: "Luxurious gold and platinum collections spanning fine jewellery for bridal, gifting, and investment markets.",
+    description: "Fusion jewellery blending Indian craftsmanship with contemporary Western design aesthetics.",
     longDescription:
-      "From 9ct to 22ct gold and certified platinum, our fine jewellery range is crafted for luxury retail, bridal collections, and investment-grade pieces across global markets.",
+      "Our Indo Western collection bridges traditional Indian jewellery techniques with modern Western styling — creating versatile pieces suited for both ethnic and contemporary occasions.",
     highlights: [
-      { heading: "Multiple Gold Purities", body: "9ct, 14ct, 18ct, and 22ct yellow, white, and rose gold across all jewellery types." },
-      { heading: "Platinum Collections", body: "950 platinum pieces crafted for bridal, anniversary, and luxury gifting markets." },
-      { heading: "Bridal & Occasion Sets", body: "Matching sets for engagements, weddings, and milestone gifting." },
-      { heading: "Investment Jewellery", body: "High-purity pieces with certification for collectors and investment buyers." },
+      { heading: "Fusion Designs", body: "Traditional motifs reimagined in modern silhouettes for crossover appeal." },
+      { heading: "Occasion Versatility", body: "Pieces designed to complement both ethnic and Western outfits." },
+      { heading: "Handcrafted Elements", body: "Artisan-crafted components combined with precision manufacturing." },
+      { heading: "Bridal Collections", body: "Indo Western bridal sets for modern brides seeking a contemporary edge." },
     ],
   },
   {
-    title: "Trend-Driven Fashion Jewellery",
+    title: "Kundan",
+    slug: "kundan",
+    parent: "jewellery",
+    parentLabel: "Jewellery",
+    icon: Sparkles,
+    description: "Traditional Kundan jewellery featuring uncut gemstones set in gold foil — a heritage art form.",
+    longDescription:
+      "Kundan jewellery is one of India's oldest and most prestigious art forms. Our collection preserves this heritage with meticulous craftsmanship — from bridal sets to statement pieces for global luxury buyers.",
+    highlights: [
+      { heading: "Heritage Craftsmanship", body: "Hand-set uncut gemstones in gold foil using traditional techniques." },
+      { heading: "Bridal & Festive Sets", body: "Complete bridal sets including necklaces, earrings, tikkas, and bangles." },
+      { heading: "Premium Materials", body: "High-quality meenakari work and semi-precious gemstone detailing." },
+      { heading: "Export Quality", body: "International packaging and certification for global luxury retail." },
+    ],
+  },
+  {
+    title: "Oxidised",
+    slug: "oxidised",
+    parent: "jewellery",
+    parentLabel: "Jewellery",
+    icon: Gem,
+    description: "Vintage-inspired oxidised silver jewellery with rustic charm and artisanal character.",
+    longDescription:
+      "Oxidised jewellery brings a rustic, antique aesthetic to modern fashion. Our range spans tribal-inspired statement pieces to delicate everyday wear — crafted for the boho and ethnic fashion markets.",
+    highlights: [
+      { heading: "Artisan Finish", body: "Hand-oxidised silver and alloy pieces with authentic vintage patina." },
+      { heading: "Tribal & Boho Styles", body: "Statement necklaces, jhumkas, cuffs, and anklets inspired by tribal art." },
+      { heading: "Lightweight Designs", body: "Comfortable, lightweight construction for everyday wearability." },
+      { heading: "Bulk & Retail", body: "Available in wholesale and retail quantities with custom packaging options." },
+    ],
+  },
+  {
+    title: "Pearls",
+    slug: "pearls",
+    parent: "jewellery",
+    parentLabel: "Jewellery",
+    icon: Sparkles,
+    description: "Elegant pearl jewellery featuring freshwater, cultured, and baroque pearls for classic and modern styles.",
+    longDescription:
+      "Pearls are timeless. Our pearl jewellery collection ranges from classic strands to modern statement pieces — sourced from trusted farms and crafted for luxury retail, bridal, and gifting markets.",
+    highlights: [
+      { heading: "Freshwater & Cultured", body: "High-lustre freshwater and cultured pearls in a range of sizes and colours." },
+      { heading: "Baroque & Keshi", body: "Irregular and unique pearl shapes for contemporary and artistic designs." },
+      { heading: "Bridal Collections", body: "Classic pearl sets designed for bridal and occasion markets." },
+      { heading: "Custom Stringing", body: "Custom pearl stringing and knotting services for bespoke orders." },
+    ],
+  },
+  {
+    title: "Antique",
+    slug: "antique",
+    parent: "jewellery",
+    parentLabel: "Jewellery",
+    icon: Crown,
+    description: "Antique-finish jewellery with heritage designs inspired by Mughal, Victorian, and temple traditions.",
+    longDescription:
+      "Our antique jewellery collection draws from centuries of design heritage — Mughal, Victorian, and South Indian temple styles reinterpreted for modern luxury and ethnic fashion markets.",
+    highlights: [
+      { heading: "Temple Jewellery", body: "South Indian temple-inspired pieces with intricate detailing and gold finishes." },
+      { heading: "Mughal-Inspired", body: "Ornate designs featuring meenakari, jadau, and polki techniques." },
+      { heading: "Victorian Revival", body: "Vintage European-inspired pieces with filigree and gemstone settings." },
+      { heading: "Heritage Collections", body: "Curated sets for bridal, festive, and high-end retail markets." },
+    ],
+  },
+  {
+    title: "Fashion Jewellery",
     slug: "fashion-jewellery",
     parent: "jewellery",
     parentLabel: "Jewellery",
     icon: Sparkles,
-    description: "Mass market and retail-ready fashion jewellery aligned with global trend forecasts and seasonal collections.",
+    description: "Trend-driven fashion jewellery for mass market retail aligned with global seasonal collections.",
     longDescription:
       "Fast fashion jewellery with a fine finish — our trend-driven collections are developed season by season to give retailers and wholesalers an edge in the fast-moving accessories market.",
     highlights: [
@@ -208,177 +208,73 @@ export const subcategories: SubcategoryData[] = [
       { heading: "Retail Display Solutions", body: "POS display stands and merchandising support for retail deployment." },
     ],
   },
-  {
-    title: "Lab-Grown Diamonds & Gemstones",
-    slug: "lab-grown",
-    parent: "jewellery",
-    parentLabel: "Jewellery",
-    icon: Gem,
-    description: "Ethically produced lab-grown diamonds and certified gemstones for modern, conscious luxury buyers.",
-    longDescription:
-      "The future of fine jewellery is ethical and sustainable. Our lab-grown diamond and gemstone offering delivers the same optical, physical, and chemical properties as mined stones — with full certification.",
-    highlights: [
-      { heading: "IGI & GIA Certified", body: "All lab-grown diamonds supplied with internationally recognised grading certificates." },
-      { heading: "Coloured Gemstones", body: "Lab-grown sapphires, rubies, emeralds, and moissanite in a range of cuts." },
-      { heading: "Ethical Credentials", body: "Fully traceable supply chain with environmental and ethical impact documentation." },
-      { heading: "Fine Jewellery Settings", body: "Diamonds and gemstones set in gold, platinum, and sterling silver on request." },
-    ],
-  },
-  {
-    title: "Private Label Jewellery Production",
-    slug: "private-label",
-    parent: "jewellery",
-    parentLabel: "Jewellery",
-    icon: Tag,
-    description: "End-to-end private label manufacturing for jewellery brands — design, sampling, production, and packaging.",
-    longDescription:
-      "Build or grow your jewellery brand with our private label manufacturing service. From initial concept through to retail-ready product, we manage every step of the production process.",
-    highlights: [
-      { heading: "Brand Design Development", body: "Custom design creation aligned with your brand aesthetic and target market." },
-      { heading: "Hallmarking & Certification", body: "Official hallmarking and grading services included with all fine jewellery." },
-      { heading: "Custom Packaging", body: "Bespoke boxes, pouches, and certificates designed to your brand identity." },
-      { heading: "Flexible MOQ", body: "Low minimum order quantities suitable for emerging and scaling jewellery brands." },
-    ],
-  },
-  {
-    title: "Custom Design Development & Sampling Support",
-    slug: "custom-design",
-    parent: "jewellery",
-    parentLabel: "Jewellery",
-    icon: Palette,
-    description: "Bespoke design services from concept to prototype, with full sampling support for retail and wholesale buyers.",
-    longDescription:
-      "Whether you have a sketch on paper or a detailed CAD file, our design and sampling team will bring your jewellery vision to life — with precision craftsmanship and fast turnaround times.",
-    highlights: [
-      { heading: "CAD Design Services", body: "3D CAD modelling and rendering for sign-off before sampling begins." },
-      { heading: "Wax & Metal Sampling", body: "Wax prototypes and metal samples produced to exact specification." },
-      { heading: "Gemstone Sourcing", body: "We source matching gemstones for bespoke pieces from certified suppliers." },
-      { heading: "Revision Support", body: "Multiple revision rounds included before bulk production approval." },
-    ],
-  },
-];
 
-export function getSubcategory(parent: string, slug: string): SubcategoryData | undefined {
-  return subcategories.find((s) => s.parent === parent && s.slug === slug);
-}
-
-// ─── Toys & Games ──────────────────────────────────────────────────────────
-const toysGamesEntries: SubcategoryData[] = [
+  // ─── Toys & Games ──────────────────────────────────────────────────────────
   {
-    title: "Educational Toys",
-    slug: "educational-toys",
-    parent: "toys-games",
-    parentLabel: "Toys & Games",
-    icon: BookOpen,
-    description: "STEM kits, learning aids, and cognitive development toys for children across all age groups.",
-    longDescription:
-      "From phonics sets to robotics kits, our educational toy range is designed to stimulate learning through play — compliant with global safety standards and tailored to curriculum requirements.",
-    highlights: [
-      { heading: "STEM & Robotics Kits", body: "Coding robots, science experiment sets, and engineering kits for ages 4–14." },
-      { heading: "Literacy & Numeracy Aids", body: "Phonics cards, maths manipulatives, and reading game sets for early learners." },
-      { heading: "Safety Certified", body: "All products meet EN 71, ASTM F963, and CPSC safety standards." },
-      { heading: "School & Retail Supply", body: "Bulk supply for schools, educational retailers, and e-commerce platforms." },
-    ],
-  },
-  {
-    title: "Board Games",
-    slug: "board-games",
-    parent: "toys-games",
-    parentLabel: "Toys & Games",
-    icon: Blocks,
-    description: "Strategy, family, and party board games manufactured for retail, wholesale, and private label buyers.",
-    longDescription:
-      "From classic strategy games to trending party titles, we manufacture and export board games to global retail and wholesale buyers — with custom private label options available.",
-    highlights: [
-      { heading: "Family & Party Games", body: "Light strategy and social games designed for ages 6+ and group play." },
-      { heading: "Strategy & Hobby Games", body: "Complex euro-style and hobby games for enthusiast and specialist retailers." },
-      { heading: "Private Label Production", body: "Custom game development from mechanics to box printing and component sourcing." },
-      { heading: "Retail-Ready Packaging", body: "Full-colour box printing, rulebooks, and display-ready shelf packaging." },
-    ],
-  },
-  {
-    title: "Dolls & Soft Toys",
-    slug: "dolls-soft-toys",
-    parent: "toys-games",
-    parentLabel: "Toys & Games",
-    icon: Rabbit,
-    description: "Safety-certified dolls, plush toys, and stuffed animals for infant to tween markets worldwide.",
-    longDescription:
-      "Our soft toy and doll range combines premium materials with rigorous safety testing — from newborn-safe plush to fashion dolls and licensed character plush for the global market.",
-    highlights: [
-      { heading: "Infant-Safe Plush", body: "Ultra-soft, non-toxic plush toys with EN 71 and OEKO-TEX® certification." },
-      { heading: "Fashion & Play Dolls", body: "Articulated fashion dolls and play sets for retail and wholesale buyers." },
-      { heading: "Custom Character Plush", body: "Licensed or original character plush developed from artwork to production." },
-      { heading: "Weighted Fill Options", body: "Anti-anxiety weighted plush options available for therapeutic and gifting markets." },
-    ],
-  },
-  {
-    title: "Puzzles",
-    slug: "puzzles",
-    parent: "toys-games",
-    parentLabel: "Toys & Games",
-    icon: Puzzle,
-    description: "Jigsaw puzzles, 3D puzzles, and brain teasers in custom piece counts and themed designs.",
-    longDescription:
-      "We manufacture and export puzzles across all formats — from toddler floor puzzles to 1000-piece adult jigsaws — with custom artwork and private label options for global retail.",
-    highlights: [
-      { heading: "Jigsaw Puzzles", body: "Piece counts from 9 to 2000+, with custom imagery and licensing options." },
-      { heading: "3D Puzzles & Models", body: "Foam and wooden 3D puzzles for architecture, vehicles, and character themes." },
-      { heading: "Educational Puzzles", body: "Alphabet, number, and map puzzles designed for early learning markets." },
-      { heading: "Custom Artwork", body: "Branded or licensed artwork printed to specification for private label clients." },
-    ],
-  },
-  {
-    title: "Outdoor Toys",
-    slug: "outdoor-toys",
-    parent: "toys-games",
-    parentLabel: "Toys & Games",
-    icon: TreePine,
-    description: "Garden games, ride-ons, water play, and outdoor activity sets built for durability and safety.",
-    longDescription:
-      "From sandpits to battery-powered ride-ons, our outdoor toy range is designed for active play — built to withstand weather, heavy use, and the demands of the global toy market.",
-    highlights: [
-      { heading: "Ride-On Vehicles", body: "Battery-powered and push ride-ons for toddlers through to primary age children." },
-      { heading: "Garden & Lawn Games", body: "Croquet, boules, ring toss, and giant garden game sets for retail." },
-      { heading: "Water Play", body: "Paddling pools, water tables, and spray toys for seasonal summer markets." },
-      { heading: "Swing Sets & Climbing", body: "Modular outdoor play structures for garden retail and institutional supply." },
-    ],
-  },
-  {
-    title: "Sports Accessories & Equipment",
-    slug: "sports-accessories",
+    title: "Top Brands",
+    slug: "top-brands",
     parent: "toys-games",
     parentLabel: "Toys & Games",
     icon: Trophy,
-    description: "Junior sports equipment, training accessories, and branded sporting goods for global distribution.",
+    description: "Authorised distribution of leading global toy and game brands for retail and wholesale buyers.",
     longDescription:
-      "Our sports accessories and equipment range covers everything from junior training gear to branded team accessories — manufactured for sports retailers, schools, and club supply.",
+      "We partner with top global toy brands to provide authorised distribution and wholesale supply — ensuring authentic products, competitive pricing, and reliable fulfilment for retailers worldwide.",
     highlights: [
-      { heading: "Junior Training Equipment", body: "Age-appropriate training sets for football, cricket, tennis, and more." },
-      { heading: "Team Accessories", body: "Branded cones, bibs, balls, and training gear for clubs and schools." },
-      { heading: "Fitness & Gym Accessories", body: "Resistance bands, jump ropes, agility ladders, and youth fitness equipment." },
-      { heading: "Custom Branding", body: "Team and school branding options across all equipment categories." },
+      { heading: "Authorised Distribution", body: "Official partnerships with leading toy and game manufacturers worldwide." },
+      { heading: "Competitive Wholesale Pricing", body: "Volume-based pricing structures for retail chains and distributors." },
+      { heading: "Authentic Products", body: "100% genuine branded products with full manufacturer warranties." },
+      { heading: "Global Fulfilment", body: "International shipping and logistics for wholesale and retail orders." },
     ],
   },
   {
-    title: "Arcade Game Equipment",
-    slug: "arcade-game-equipment",
+    title: "Shop by Themes",
+    slug: "shop-by-themes",
+    parent: "toys-games",
+    parentLabel: "Toys & Games",
+    icon: Puzzle,
+    description: "Curated toy and game collections organised by popular themes — STEM, outdoor, creative, and more.",
+    longDescription:
+      "Browse our toy and game catalogue by theme — from STEM and educational to outdoor adventure, creative play, and licensed character collections. Perfect for themed retail displays and gifting.",
+    highlights: [
+      { heading: "STEM & Educational", body: "Science, technology, engineering, and maths toys for curious minds." },
+      { heading: "Creative & Arts", body: "Craft kits, art supplies, and creative play sets for budding artists." },
+      { heading: "Outdoor Adventure", body: "Garden games, sports equipment, and outdoor play for active kids." },
+      { heading: "Licensed Characters", body: "Popular character-themed toys and games from leading entertainment brands." },
+    ],
+  },
+  {
+    title: "Shop by Age",
+    slug: "shop-by-age",
+    parent: "toys-games",
+    parentLabel: "Toys & Games",
+    icon: BookOpen,
+    description: "Age-appropriate toys and games carefully categorised from infant to teen age groups.",
+    longDescription:
+      "Find the perfect products for every age group — our catalogue is segmented by developmental stage to help retailers and buyers select age-appropriate, safety-compliant toys and games.",
+    highlights: [
+      { heading: "0–2 Years", body: "Sensory toys, teethers, rattles, and soft play items for infants and toddlers." },
+      { heading: "3–5 Years", body: "Pre-school learning toys, building blocks, and imaginative play sets." },
+      { heading: "6–9 Years", body: "Board games, construction sets, outdoor toys, and creative kits." },
+      { heading: "10+ Years", body: "Strategy games, hobby kits, sports equipment, and teen-focused products." },
+    ],
+  },
+  {
+    title: "Other Brands",
+    slug: "other-brands",
     parent: "toys-games",
     parentLabel: "Toys & Games",
     icon: Gamepad2,
-    description: "Coin-operated and redemption arcade machines, tabletop games, and entertainment centre equipment.",
+    description: "Emerging and specialty toy brands offering unique products for niche and mainstream markets.",
     longDescription:
-      "We supply arcade and amusement equipment to entertainment venues, FECs, and retail operators — from classic coin-op cabinets to modern redemption machines and prize dispensers.",
+      "Beyond the top global brands, we source and distribute emerging, indie, and specialty toy brands — giving retailers access to unique, differentiated products that stand out on the shelf.",
     highlights: [
-      { heading: "Redemption Machines", body: "Ticket and prize redemption arcade games for family entertainment centres." },
-      { heading: "Coin-Operated Cabinets", body: "Classic and modern video arcade cabinets built for commercial operation." },
-      { heading: "Tabletop & Mini Arcade", body: "Consumer and semi-commercial tabletop arcade units for retail and gifting." },
-      { heading: "FEC Supply & Installation", body: "Full venue fit-out supply for family entertainment centres and amusement parks." },
+      { heading: "Indie & Emerging Brands", body: "Curated selection of up-and-coming toy brands with unique value propositions." },
+      { heading: "Specialty & Niche", body: "Wooden toys, eco-friendly brands, and culturally diverse product lines." },
+      { heading: "Private Label Options", body: "White-label and private label toy manufacturing for your own brand." },
+      { heading: "Discovery Collections", body: "Seasonal discovery boxes and curated collections for retail and gifting." },
     ],
   },
 ];
-
-subcategories.push(...toysGamesEntries);
 
 // ─── Services ──────────────────────────────────────────────────────────────
 const servicesEntries: SubcategoryData[] = [
@@ -482,4 +378,6 @@ const servicesEntries: SubcategoryData[] = [
 
 subcategories.push(...servicesEntries);
 
-
+export function getSubcategory(parent: string, slug: string): SubcategoryData | undefined {
+  return subcategories.find((s) => s.parent === parent && s.slug === slug);
+}
