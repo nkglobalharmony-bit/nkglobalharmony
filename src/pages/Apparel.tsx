@@ -6,23 +6,15 @@ import heroImg from "@/assets/hero-apparel.jpg";
 import menswearImg from "@/assets/apparel-menswear.jpg";
 import womenswearImg from "@/assets/apparel-womenswear.jpg";
 import kidswearImg from "@/assets/apparel-kidswear.jpg";
-import ethnicImg from "@/assets/apparel-ethnic.jpg";
 import activewearImg from "@/assets/apparel-activewear.jpg";
 import workwearImg from "@/assets/apparel-workwear.jpg";
-import privateLabelImg from "@/assets/apparel-private-label.jpg";
-import samplingImg from "@/assets/apparel-sampling.jpg";
-import sustainableImg from "@/assets/apparel-sustainable.jpg";
 
 const categories = [
-  { title: "Menswear", slug: "menswear", image: menswearImg },
-  { title: "Womenswear", slug: "womenswear", image: womenswearImg },
-  { title: "Kidswear", slug: "kidswear", image: kidswearImg },
-  { title: "Ethnic & Occasion Wear", slug: "ethnic-occasion-wear", image: ethnicImg },
-  { title: "Activewear & Athleisure", slug: "activewear-athleisure", image: activewearImg },
-  { title: "Workwear & Uniforms", slug: "workwear-uniforms", image: workwearImg },
-  { title: "Private Label", slug: "private-label-production", image: privateLabelImg },
-  { title: "Custom Sampling", slug: "custom-sampling-bulk", image: samplingImg },
-  { title: "Organic & Sustainable", slug: "organic-sustainable", image: sustainableImg },
+  { title: "Women's Wear", slug: "womenswear", image: womenswearImg },
+  { title: "Men's Wear", slug: "menswear", image: menswearImg },
+  { title: "Kids Wear", slug: "kidswear", image: kidswearImg },
+  { title: "Unisex", slug: "unisex", image: activewearImg },
+  { title: "Industrial", slug: "industrial", image: workwearImg },
 ];
 
 const Apparel = () => (

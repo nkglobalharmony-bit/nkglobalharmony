@@ -1,17 +1,14 @@
 import { Link } from "react-router-dom";
-import { ArrowLeft, BookOpen, Blocks, Rabbit, Puzzle, TreePine, Trophy, Gamepad2 } from "lucide-react";
+import { ArrowLeft, Trophy, Puzzle, BookOpen, Gamepad2 } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import heroImg from "@/assets/hero-toys.jpg";
 
 const subcategories = [
-  { title: "Educational Toys", slug: "educational-toys", description: "STEM kits, learning aids, and cognitive development toys for children across all age groups.", icon: BookOpen },
-  { title: "Board Games", slug: "board-games", description: "Strategy, family, and party board games manufactured for retail, wholesale, and private label buyers.", icon: Blocks },
-  { title: "Dolls & Soft Toys", slug: "dolls-soft-toys", description: "Safety-certified dolls, plush toys, and stuffed animals for infant to tween markets worldwide.", icon: Rabbit },
-  { title: "Puzzles", slug: "puzzles", description: "Jigsaw puzzles, 3D puzzles, and brain teasers in custom piece counts and themed designs.", icon: Puzzle },
-  { title: "Outdoor Toys", slug: "outdoor-toys", description: "Garden games, ride-ons, water play, and outdoor activity sets built for durability and safety.", icon: TreePine },
-  { title: "Sports Accessories & Equipment", slug: "sports-accessories", description: "Junior sports equipment, training accessories, and branded sporting goods for global distribution.", icon: Trophy },
-  { title: "Arcade Game Equipment", slug: "arcade-game-equipment", description: "Coin-operated and redemption arcade machines, tabletop games, and entertainment centre equipment.", icon: Gamepad2 },
+  { title: "Top Brands", slug: "top-brands", description: "Authorised distribution of leading global toy and game brands for retail and wholesale buyers.", icon: Trophy },
+  { title: "Shop by Themes", slug: "shop-by-themes", description: "Curated toy and game collections organised by popular themes — STEM, outdoor, creative, and more.", icon: Puzzle },
+  { title: "Shop by Age", slug: "shop-by-age", description: "Age-appropriate toys and games carefully categorised from infant to teen age groups.", icon: BookOpen },
+  { title: "Other Brands", slug: "other-brands", description: "Emerging and specialty toy brands offering unique products for niche and mainstream markets.", icon: Gamepad2 },
 ];
 
 const ToysGames = () => (
@@ -30,7 +27,7 @@ const ToysGames = () => (
             <ArrowLeft size={16} /> Back to Home
           </Link>
           <h1 className="font-serif text-5xl md:text-7xl font-bold tracking-tight text-white">
-            Toys &amp; Games
+            Games &amp; Toys
           </h1>
         </div>
       </div>
@@ -38,8 +35,8 @@ const ToysGames = () => (
       <section>
         <div className="container py-12 md:py-16">
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed">
-            Global-standard toys and games for every market segment. From educational
-            STEM kits to arcade equipment — manufactured, certified, and export-ready.
+            Global-standard toys and games for every market segment. From top brands
+            to themed collections and age-based ranges — sourced, certified, and export-ready.
           </p>
         </div>
       </section>
@@ -50,7 +47,7 @@ const ToysGames = () => (
           <span className="text-xs font-sans tracking-[0.3em] uppercase text-muted-foreground mb-10 block">
             Categories
           </span>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             {subcategories.map((cat) => (
               <Link
                 key={cat.slug}
