@@ -166,14 +166,14 @@ const Navbar = () => {
 
   return (
     <header className="border-b border-border bg-background/95 backdrop-blur-sm shadow-sm sticky top-0 z-50">
-      <div className="container flex items-center justify-between py-6">
+      <div className="container flex items-center justify-between py-4">
         {isHome ? (
-          <button onClick={() => viewCtx?.setView({ type: "home" })}>
-            <img src={logo} alt="NK Global Harmony" className="h-28" />
+          <button onClick={() => viewCtx?.setView({ type: "home" })} className="flex items-center">
+            <span className="font-serif text-2xl tracking-wide"><span className="font-bold">NK</span> Global Harmony</span>
           </button>
         ) : (
           <Link to="/" className="flex items-center">
-            <img src={logo} alt="NK Global Harmony" className="h-28" />
+            <span className="font-serif text-2xl tracking-wide"><span className="font-bold">NK</span> Global Harmony</span>
           </Link>
         )}
 
