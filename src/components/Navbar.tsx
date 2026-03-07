@@ -114,7 +114,7 @@ const Navbar = () => {
     parent?: Parent
   ) => (
     <DropdownMenu>
-      <DropdownMenuTrigger className="flex items-center gap-1 text-muted-foreground hover:text-foreground transition-colors outline-none">
+      <DropdownMenuTrigger className="flex items-center gap-1 text-primary-foreground/70 hover:text-primary-foreground transition-colors outline-none">
         {label} <ChevronDown size={14} />
       </DropdownMenuTrigger>
       <DropdownMenuContent align="start" className="bg-background border border-border shadow-md z-50 min-w-[260px]">
@@ -142,7 +142,7 @@ const Navbar = () => {
     <li>
       <button
         onClick={toggle}
-        className="flex items-center gap-1 text-muted-foreground hover:text-foreground transition-colors w-full text-left"
+        className="flex items-center gap-1 text-primary-foreground/70 hover:text-primary-foreground transition-colors w-full text-left"
       >
         {label} <ChevronDown size={14} className={`transition-transform ${isOpen ? "rotate-180" : ""}`} />
       </button>
@@ -152,7 +152,7 @@ const Navbar = () => {
             <li key={item.slug || item.path}>
               <Link
                 to={item.path || `${basePath}/${item.slug}`}
-                className="text-muted-foreground hover:text-foreground transition-colors text-xs"
+                className="text-primary-foreground/70 hover:text-primary-foreground transition-colors text-xs"
                 onClick={() => setOpen(false)}
               >
                 {item.label}
@@ -165,7 +165,7 @@ const Navbar = () => {
   );
 
   return (
-    <header className="border-b border-border bg-background/95 backdrop-blur-sm shadow-sm sticky top-0 z-50">
+    <header className="border-b border-border bg-primary backdrop-blur-sm shadow-sm sticky top-0 z-50 text-primary-foreground">
       <div className="container flex items-center justify-between py-4">
         {isHome ? (
           <button onClick={() => viewCtx?.setView({ type: "home" })} className="flex items-center">
@@ -186,7 +186,7 @@ const Navbar = () => {
                 <DropdownMenuTrigger asChild>
                   <Link
                     to="/apparel"
-                    className="flex items-center gap-1 text-muted-foreground hover:text-foreground transition-colors outline-none"
+                    className="flex items-center gap-1 text-primary-foreground/70 hover:text-primary-foreground transition-colors outline-none"
                   >
                     Apparel <ChevronDown size={14} />
                   </Link>
@@ -211,7 +211,7 @@ const Navbar = () => {
             <li>{renderDropdown("Services", servicesSubcategories, "/services")}</li>
             <li>
               <DropdownMenu>
-                <DropdownMenuTrigger className="flex items-center gap-1 text-muted-foreground hover:text-foreground transition-colors outline-none">
+                <DropdownMenuTrigger className="flex items-center gap-1 text-primary-foreground/70 hover:text-primary-foreground transition-colors outline-none">
                   Contact Us <ChevronDown size={14} />
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="end" className="bg-background border border-border shadow-md z-50 min-w-[200px]">
@@ -234,7 +234,7 @@ const Navbar = () => {
         {/* Mobile toggle */}
         <button
           onClick={() => setOpen(!open)}
-          className="text-foreground lg:hidden"
+          className="text-primary-foreground lg:hidden"
           aria-label="Toggle menu"
         >
           {open ? <X size={22} /> : <Menu size={22} />}
