@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
-import logo from "@/assets/NK_logo.png";
+
 import {
   DropdownMenu,
   DropdownMenuContent,
