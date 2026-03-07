@@ -186,7 +186,7 @@ const Navbar = () => {
                 <DropdownMenuTrigger asChild>
                   <Link
                     to="/apparel"
-                    className="flex items-center gap-1 text-muted-foreground hover:text-foreground transition-colors outline-none"
+                    className="flex items-center gap-1 text-primary-foreground/70 hover:text-primary-foreground transition-colors outline-none"
                   >
                     Apparel <ChevronDown size={14} />
                   </Link>
