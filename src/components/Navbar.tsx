@@ -114,7 +114,7 @@ const Navbar = () => {
     parent?: Parent
   ) => (
     <DropdownMenu>
-      <DropdownMenuTrigger className="flex items-center gap-1 text-muted-foreground hover:text-foreground transition-colors outline-none">
+      <DropdownMenuTrigger className="flex items-center gap-1 text-primary-foreground/70 hover:text-primary-foreground transition-colors outline-none">
         {label} <ChevronDown size={14} />
       </DropdownMenuTrigger>
       <DropdownMenuContent align="start" className="bg-background border border-border shadow-md z-50 min-w-[260px]">
