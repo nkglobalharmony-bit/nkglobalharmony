@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
+import lotusIcon from "@/assets/lotus-icon.png";
 import { Link, useLocation } from "react-router-dom";
 
 import {
@@ -169,10 +170,12 @@ const Navbar = () => {
       <div className="container flex items-center justify-between py-4">
         {isHome ? (
           <button onClick={() => viewCtx?.setView({ type: "home" })} className="flex items-center">
+            <img src={lotusIcon} alt="" className="h-8 w-8 mr-2" />
             <span className="font-serif text-2xl tracking-wide"><span className="font-bold">NK</span> Global Harmony</span>
           </button>
         ) : (
           <Link to="/" className="flex items-center">
+            <img src={lotusIcon} alt="" className="h-8 w-8 mr-2" />
             <span className="font-serif text-2xl tracking-wide"><span className="font-bold">NK</span> Global Harmony</span>
           </Link>
         )}
