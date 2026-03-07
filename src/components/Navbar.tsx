@@ -165,7 +165,7 @@ const Navbar = () => {
   );
 
   return (
-    <header className="border-b border-border bg-background/95 backdrop-blur-sm shadow-sm sticky top-0 z-50">
+    <header className="border-b border-border bg-primary backdrop-blur-sm shadow-sm sticky top-0 z-50 text-primary-foreground">
       <div className="container flex items-center justify-between py-4">
         {isHome ? (
           <button onClick={() => viewCtx?.setView({ type: "home" })} className="flex items-center">
