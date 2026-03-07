@@ -1,40 +1,18 @@
 
 
-## Add Services Dropdown to Navbar
+## Replace Navbar Logo with Styled Text
 
-### What will be done
-
-Add a **Services** dropdown menu to the navigation bar (both desktop and mobile) with the following 6 subcategories:
-
-1. Brand Building & Consulting
-2. Market Research & Trend Forecasting Services
-3. Product Development & Prototyping Services
-4. Social Media Creatives & E-Commerce Marketing Services
-5. Strategic Management in International Business
-6. Fashion Tech Packs & Management
+Replace the current `NK_logo.png` image logo with a styled text logo matching the reference: bold serif "NK" followed by lighter "Global Harmony".
 
 ### Changes
 
-**1. Modified: `src/components/Navbar.tsx`**
-- Add a `servicesSubcategories` array with the 6 items above (each with label and slug)
-- Add `"services"` to the `Parent` type union
-- Add a Services `DropdownMenu` in the desktop nav (between Packaging and Request a Quote)
-- Add a `servicesOpen` state for mobile accordion toggle
-- Add Services collapsible section in the mobile nav
-- Dropdown items will link to `/services/:slug` routes
+**`src/components/Navbar.tsx`**
+- Remove the `import logo from "@/assets/NK_logo.png"` import
+- Replace the `<img>` tags (around lines 163-170) with a styled text element:
+  - `<span className="font-serif text-2xl tracking-wide"><span className="font-bold">NK</span> Global Harmony</span>`
+- Apply to both the home button version and the Link version
+- Reduce the navbar vertical padding from `py-6` to `py-4` since the text logo is more compact than the large image
 
-**2. Modified: `src/context/ViewContext.tsx`**
-- Add `"services"` to the `ParentCategory` type
-
-**3. Modified: `src/App.tsx`**
-- Add route `/services/:slug` pointing to `SubcategoryPage` with `parent="services"`
-
-**4. Modified: `src/data/subcategories.ts`**
-- Add services subcategory data entries so the subcategory pages render content for each service
-
-### Technical details
-- Follows the exact same dropdown pattern used for Apparel, Jewellery, Toys & Games, and Packaging
-- Services items use standard `Link` navigation to `/services/:slug` routes
-- Mobile menu uses the same accordion expand/collapse pattern with `ChevronDown` rotation
-- Dropdown has `bg-background`, `border`, `shadow-md`, and `z-50` for proper visibility
+**`src/index.css`** (if needed)
+- Confirm Playfair Display is available as `font-serif` — it was added in the earlier aesthetic overhaul
 
