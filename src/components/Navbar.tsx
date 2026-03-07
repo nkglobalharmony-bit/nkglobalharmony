@@ -211,7 +211,7 @@ const Navbar = () => {
             <li>{renderDropdown("Services", servicesSubcategories, "/services")}</li>
             <li>
               <DropdownMenu>
-                <DropdownMenuTrigger className="flex items-center gap-1 text-muted-foreground hover:text-foreground transition-colors outline-none">
+                <DropdownMenuTrigger className="flex items-center gap-1 text-primary-foreground/70 hover:text-primary-foreground transition-colors outline-none">
                   Contact Us <ChevronDown size={14} />
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="end" className="bg-background border border-border shadow-md z-50 min-w-[200px]">
