@@ -108,6 +108,8 @@ const Navbar = () => {
     }
   };
 
+  const navLinkClass = "flex items-center gap-1 text-foreground/60 hover:text-foreground transition-colors outline-none font-medium";
+
   const renderDropdown = (
     label: string,
     items: { label: string; slug: string }[],
@@ -115,7 +117,7 @@ const Navbar = () => {
     parent?: Parent
   ) => (
     <DropdownMenu>
-      <DropdownMenuTrigger className="flex items-center gap-1 text-primary-foreground/70 hover:text-primary-foreground transition-colors outline-none">
+      <DropdownMenuTrigger className={navLinkClass}>
         {label} <ChevronDown size={14} />
       </DropdownMenuTrigger>
       <DropdownMenuContent align="start" className="bg-background border border-border shadow-md z-50 min-w-[260px]">
@@ -143,7 +145,7 @@ const Navbar = () => {
     <li>
       <button
         onClick={toggle}
-        className="flex items-center gap-1 text-primary-foreground/70 hover:text-primary-foreground transition-colors w-full text-left"
+        className="flex items-center gap-1 text-foreground/60 hover:text-foreground transition-colors w-full text-left font-medium"
       >
         {label} <ChevronDown size={14} className={`transition-transform ${isOpen ? "rotate-180" : ""}`} />
       </button>
@@ -153,7 +155,7 @@ const Navbar = () => {
             <li key={item.slug || item.path}>
               <Link
                 to={item.path || `${basePath}/${item.slug}`}
-                className="text-primary-foreground/70 hover:text-primary-foreground transition-colors text-xs"
+                className="text-foreground/50 hover:text-foreground transition-colors text-xs"
                 onClick={() => setOpen(false)}
               >
                 {item.label}
@@ -166,29 +168,26 @@ const Navbar = () => {
   );
 
   return (
-    <header className="border-b border-border bg-primary backdrop-blur-sm shadow-sm sticky top-0 z-50 text-primary-foreground">
-      <div className="container flex items-center justify-between py-4">
+    <header className="bg-background/80 backdrop-blur-md sticky top-0 z-50 text-foreground">
+      <div className="container flex items-center justify-between py-5">
         {isHome ? (
           <button onClick={() => viewCtx?.setView({ type: "home" })} className="flex items-center">
-            <img src={nkLogo} alt="NK Global Harmony" className="h-12" />
+            <img src={nkLogo} alt="NK Global Harmony" className="h-10" />
           </button>
         ) : (
           <Link to="/" className="flex items-center">
-            <img src={nkLogo} alt="NK Global Harmony" className="h-12" />
+            <img src={nkLogo} alt="NK Global Harmony" className="h-10" />
           </Link>
         )}
 
         {/* Desktop nav */}
         <nav className="hidden lg:block">
-          <ul className="flex items-center gap-6 font-sans text-sm tracking-wide">
+          <ul className="flex items-center gap-8 font-sans text-sm tracking-wide">
             <li>{renderDropdown("About Us", aboutUsLinks, "/about")}</li>
             <li>
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
-                  <Link
-                    to="/apparel"
-                    className="flex items-center gap-1 text-primary-foreground/70 hover:text-primary-foreground transition-colors outline-none"
-                  >
+                  <Link to="/apparel" className={navLinkClass}>
                     Apparel <ChevronDown size={14} />
                   </Link>
                 </DropdownMenuTrigger>
@@ -212,7 +211,7 @@ const Navbar = () => {
             <li>{renderDropdown("Services", servicesSubcategories, "/services")}</li>
             <li>
               <DropdownMenu>
-                <DropdownMenuTrigger className="flex items-center gap-1 text-primary-foreground/70 hover:text-primary-foreground transition-colors outline-none">
+                <DropdownMenuTrigger className={navLinkClass}>
                   Contact Us <ChevronDown size={14} />
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="end" className="bg-background border border-border shadow-md z-50 min-w-[200px]">
@@ -235,7 +234,7 @@ const Navbar = () => {
         {/* Mobile toggle */}
         <button
           onClick={() => setOpen(!open)}
-          className="text-primary-foreground lg:hidden"
+          className="text-foreground lg:hidden"
           aria-label="Toggle menu"
         >
           {open ? <X size={22} /> : <Menu size={22} />}
@@ -244,7 +243,7 @@ const Navbar = () => {
 
       {/* Mobile nav */}
       {open && (
-        <nav className="container border-t border-border py-6 animate-fade-in lg:hidden">
+        <nav className="container border-t border-border/30 py-6 animate-fade-in lg:hidden">
           <ul className="space-y-4 font-sans text-sm tracking-wide">
             {renderMobileAccordion("About Us", aboutOpen, () => setAboutOpen(!aboutOpen), aboutUsLinks, "/about")}
             {renderMobileAccordion("Apparel", apparelOpen, () => setApparelOpen(!apparelOpen), [
