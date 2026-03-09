@@ -95,19 +95,6 @@ const Navbar = () => {
   const viewCtx = useSafeView();
   const isHome = location.pathname === "/";
 
-  const handleCategory = (parent: Parent) => {
-    if (isHome && viewCtx) {
-      viewCtx.setView({ type: "category", parent });
-    }
-  };
-
-  const handleSubcategory = (parent: Parent, slug: string) => {
-    setOpen(false);
-    if (isHome && viewCtx) {
-      viewCtx.setView({ type: "subcategory", parent, slug });
-    }
-  };
-
   const navLinkClass = "flex items-center gap-1 text-foreground/60 hover:text-foreground transition-colors outline-none font-medium";
 
   const renderDropdown = (
@@ -167,22 +154,38 @@ const Navbar = () => {
     </li>
   );
 
+  const LogoImg = () => (
+    <img src={nkLogo} alt="NK Global Harmony" className="h-16" />
+  );
+
   return (
     <header className="bg-background/80 backdrop-blur-md sticky top-0 z-50 text-foreground">
-      <div className="container flex items-center justify-between py-5">
+      {/* Logo row */}
+      <div className="container flex flex-col lg:flex-row items-center justify-between py-4">
         {isHome ? (
-          <button onClick={() => viewCtx?.setView({ type: "home" })} className="flex items-center">
-            <img src={nkLogo} alt="NK Global Harmony" className="h-10" />
+          <button onClick={() => viewCtx?.setView({ type: "home" })} className="flex items-center mx-auto lg:mx-0">
+            <LogoImg />
           </button>
         ) : (
-          <Link to="/" className="flex items-center">
-            <img src={nkLogo} alt="NK Global Harmony" className="h-10" />
+          <Link to="/" className="flex items-center mx-auto lg:mx-0">
+            <LogoImg />
           </Link>
         )}
 
-        {/* Desktop nav */}
-        <nav className="hidden lg:block">
-          <ul className="flex items-center gap-8 font-sans text-sm tracking-wide">
+        {/* Mobile toggle */}
+        <button
+          onClick={() => setOpen(!open)}
+          className="text-foreground lg:hidden absolute right-4"
+          aria-label="Toggle menu"
+        >
+          {open ? <X size={22} /> : <Menu size={22} />}
+        </button>
+      </div>
+
+      {/* Desktop nav row */}
+      <nav className="hidden lg:block border-t border-border/20">
+        <div className="container">
+          <ul className="flex items-center justify-center gap-8 font-sans text-sm tracking-wide py-3">
             <li>{renderDropdown("About Us", aboutUsLinks, "/about")}</li>
             <li>
               <DropdownMenu>
@@ -229,17 +232,8 @@ const Navbar = () => {
               </DropdownMenu>
             </li>
           </ul>
-        </nav>
-
-        {/* Mobile toggle */}
-        <button
-          onClick={() => setOpen(!open)}
-          className="text-foreground lg:hidden"
-          aria-label="Toggle menu"
-        >
-          {open ? <X size={22} /> : <Menu size={22} />}
-        </button>
-      </div>
+        </div>
+      </nav>
 
       {/* Mobile nav */}
       {open && (
