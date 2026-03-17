@@ -95,7 +95,7 @@ const Navbar = () => {
   const viewCtx = useSafeView();
   const isHome = location.pathname === "/";
 
-  const navLinkClass = "flex items-center gap-1 text-foreground/60 hover:text-foreground transition-colors outline-none font-medium";
+  const navLinkClass = "flex items-center gap-1 text-primary-foreground/70 hover:text-primary-foreground transition-colors outline-none font-medium";
 
   const renderDropdown = (
     label: string,
@@ -132,7 +132,7 @@ const Navbar = () => {
     <li>
       <button
         onClick={toggle}
-        className="flex items-center gap-1 text-foreground/60 hover:text-foreground transition-colors w-full text-left font-medium"
+        className="flex items-center gap-1 text-primary-foreground/70 hover:text-primary-foreground transition-colors w-full text-left font-medium"
       >
         {label} <ChevronDown size={14} className={`transition-transform ${isOpen ? "rotate-180" : ""}`} />
       </button>
@@ -142,7 +142,7 @@ const Navbar = () => {
             <li key={item.slug || item.path}>
               <Link
                 to={item.path || `${basePath}/${item.slug}`}
-                className="text-foreground/50 hover:text-foreground transition-colors text-xs"
+                className="text-primary-foreground/50 hover:text-primary-foreground transition-colors text-xs"
                 onClick={() => setOpen(false)}
               >
                 {item.label}
@@ -165,8 +165,8 @@ const Navbar = () => {
         decoding="async"
       />
       <span className="relative flex flex-col items-center leading-none">
-        <span className="font-serif text-lg font-semibold sm:text-xl lg:text-2xl">NK</span>
-        <span className="text-[10px] uppercase tracking-[0.2em] text-foreground/70 sm:text-xs">
+        <span className="font-serif text-lg font-semibold text-primary-foreground sm:text-xl lg:text-2xl">NK</span>
+        <span className="text-[10px] uppercase tracking-[0.2em] text-primary-foreground/70 sm:text-xs">
           Global Harmony
         </span>
       </span>
@@ -174,7 +174,7 @@ const Navbar = () => {
   );
 
   return (
-    <header className="bg-background/80 backdrop-blur-md sticky top-0 z-50 text-foreground">
+    <header className="sticky top-0 z-50 text-primary-foreground navbar-obsidian">
       {/* Logo row */}
       <div className="container flex flex-col lg:flex-row items-center justify-between py-4">
         {isHome ? (
@@ -198,7 +198,7 @@ const Navbar = () => {
       </div>
 
       {/* Desktop nav row */}
-      <nav className="hidden lg:block border-t border-border/20">
+      <nav className="hidden lg:block border-t border-primary-foreground/10 relative z-10">
         <div className="container">
           <ul className="flex items-center justify-center gap-8 font-sans text-sm tracking-wide py-3">
             <li>{renderDropdown("About Us", aboutUsLinks, "/about")}</li>
@@ -252,7 +252,7 @@ const Navbar = () => {
 
       {/* Mobile nav */}
       {open && (
-        <nav className="container border-t border-border/30 py-6 animate-fade-in lg:hidden">
+        <nav className="container border-t border-primary-foreground/10 py-6 animate-fade-in lg:hidden relative z-10">
           <ul className="space-y-4 font-sans text-sm tracking-wide">
             {renderMobileAccordion("About Us", aboutOpen, () => setAboutOpen(!aboutOpen), aboutUsLinks, "/about")}
             {renderMobileAccordion("Apparel", apparelOpen, () => setApparelOpen(!apparelOpen), [
