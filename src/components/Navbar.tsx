@@ -155,7 +155,13 @@ const Navbar = () => {
   );
 
   const LogoImg = () => (
-    <img src={nkLogo} alt="NK Global Harmony" className="h-16" />
+    <img
+      src={nkLogo}
+      alt="NK Global Harmony"
+      className="block h-10 w-auto object-contain sm:h-12 lg:h-14"
+      loading="eager"
+      decoding="async"
+    />
   );
 
   return (
