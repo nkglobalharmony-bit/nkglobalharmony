@@ -198,7 +198,7 @@ const Navbar = () => {
       </div>
 
       {/* Desktop nav row */}
-      <nav className="hidden lg:block border-t border-border/20">
+      <nav className="hidden lg:block border-t border-primary-foreground/10 relative z-10">
         <div className="container">
           <ul className="flex items-center justify-center gap-8 font-sans text-sm tracking-wide py-3">
             <li>{renderDropdown("About Us", aboutUsLinks, "/about")}</li>
