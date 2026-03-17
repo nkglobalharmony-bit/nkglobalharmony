@@ -142,7 +142,7 @@ const Navbar = () => {
             <li key={item.slug || item.path}>
               <Link
                 to={item.path || `${basePath}/${item.slug}`}
-                className="text-foreground/50 hover:text-foreground transition-colors text-xs"
+                className="text-primary-foreground/50 hover:text-primary-foreground transition-colors text-xs"
                 onClick={() => setOpen(false)}
               >
                 {item.label}
