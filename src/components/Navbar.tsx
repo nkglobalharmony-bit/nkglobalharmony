@@ -95,7 +95,7 @@ const Navbar = () => {
   const viewCtx = useSafeView();
   const isHome = location.pathname === "/";
 
-  const navLinkClass = "flex items-center gap-1 text-foreground/60 hover:text-foreground transition-colors outline-none font-medium";
+  const navLinkClass = "flex items-center gap-1 text-primary-foreground/70 hover:text-primary-foreground transition-colors outline-none font-medium";
 
   const renderDropdown = (
     label: string,
