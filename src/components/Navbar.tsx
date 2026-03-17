@@ -165,8 +165,8 @@ const Navbar = () => {
         decoding="async"
       />
       <span className="relative flex flex-col items-center leading-none">
-        <span className="font-serif text-lg font-semibold sm:text-xl lg:text-2xl">NK</span>
-        <span className="text-[10px] uppercase tracking-[0.2em] text-foreground/70 sm:text-xs">
+        <span className="font-serif text-lg font-semibold text-primary-foreground sm:text-xl lg:text-2xl">NK</span>
+        <span className="text-[10px] uppercase tracking-[0.2em] text-primary-foreground/70 sm:text-xs">
           Global Harmony
         </span>
       </span>
