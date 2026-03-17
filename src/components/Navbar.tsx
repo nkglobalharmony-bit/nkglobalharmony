@@ -132,7 +132,7 @@ const Navbar = () => {
     <li>
       <button
         onClick={toggle}
-        className="flex items-center gap-1 text-foreground/60 hover:text-foreground transition-colors w-full text-left font-medium"
+        className="flex items-center gap-1 text-primary-foreground/70 hover:text-primary-foreground transition-colors w-full text-left font-medium"
       >
         {label} <ChevronDown size={14} className={`transition-transform ${isOpen ? "rotate-180" : ""}`} />
       </button>
