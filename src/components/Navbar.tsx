@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
-import nkLogo from "@/assets/NK_logo.png";
+import lotusIcon from "@/assets/lotus-icon.png";
 import { Link, useLocation } from "react-router-dom";
 
 import {
@@ -155,7 +155,22 @@ const Navbar = () => {
   );
 
   const LogoImg = () => (
-    <img src={nkLogo} alt="NK Global Harmony" className="h-16" />
+    <span className="flex items-center gap-2 sm:gap-3">
+      <img
+        src={lotusIcon}
+        alt=""
+        aria-hidden="true"
+        className="h-8 w-8 object-contain sm:h-9 sm:w-9 lg:h-10 lg:w-10"
+        loading="eager"
+        decoding="async"
+      />
+      <span className="flex flex-col leading-none">
+        <span className="font-serif text-lg sm:text-xl lg:text-2xl">NK</span>
+        <span className="text-[10px] uppercase tracking-[0.2em] text-foreground/70 sm:text-xs">
+          Global Harmony
+        </span>
+      </span>
+    </span>
   );
 
   return (
