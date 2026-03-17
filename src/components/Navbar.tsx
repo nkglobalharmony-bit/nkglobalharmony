@@ -155,17 +155,17 @@ const Navbar = () => {
   );
 
   const LogoImg = () => (
-    <span className="flex items-center gap-2 sm:gap-3">
+    <span className="relative flex items-center justify-center">
       <img
         src={lotusIcon}
         alt=""
         aria-hidden="true"
-        className="h-8 w-8 object-contain sm:h-9 sm:w-9 lg:h-10 lg:w-10"
+        className="absolute h-12 w-12 object-contain opacity-15 sm:h-14 sm:w-14 lg:h-16 lg:w-16"
         loading="eager"
         decoding="async"
       />
-      <span className="flex flex-col leading-none">
-        <span className="font-serif text-lg sm:text-xl lg:text-2xl">NK</span>
+      <span className="relative flex flex-col items-center leading-none">
+        <span className="font-serif text-lg font-semibold sm:text-xl lg:text-2xl">NK</span>
         <span className="text-[10px] uppercase tracking-[0.2em] text-foreground/70 sm:text-xs">
           Global Harmony
         </span>
