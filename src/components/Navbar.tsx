@@ -174,7 +174,7 @@ const Navbar = () => {
   );
 
   return (
-    <header className="bg-background/80 backdrop-blur-md sticky top-0 z-50 text-foreground">
+    <header className="sticky top-0 z-50 text-primary-foreground navbar-obsidian">
       {/* Logo row */}
       <div className="container flex flex-col lg:flex-row items-center justify-between py-4">
         {isHome ? (
