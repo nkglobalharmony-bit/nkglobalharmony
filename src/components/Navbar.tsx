@@ -252,7 +252,7 @@ const Navbar = () => {
 
       {/* Mobile nav */}
       {open && (
-        <nav className="container border-t border-border/30 py-6 animate-fade-in lg:hidden">
+        <nav className="container border-t border-primary-foreground/10 py-6 animate-fade-in lg:hidden relative z-10">
           <ul className="space-y-4 font-sans text-sm tracking-wide">
             {renderMobileAccordion("About Us", aboutOpen, () => setAboutOpen(!aboutOpen), aboutUsLinks, "/about")}
             {renderMobileAccordion("Apparel", apparelOpen, () => setApparelOpen(!apparelOpen), [
