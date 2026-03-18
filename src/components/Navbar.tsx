@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
-import lotusIcon from "@/assets/lotus-icon.png";
+import nkLogoFull from "@/assets/nk-logo-full.jpg";
 import { Link, useLocation } from "react-router-dom";
 
 import {
