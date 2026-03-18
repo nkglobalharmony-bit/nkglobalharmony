@@ -155,12 +155,12 @@ const Navbar = () => {
   );
 
   const LogoImg = () => (
-    <span className="relative flex items-center justify-center">
+    <span className="relative flex items-center justify-center h-full">
       <img
         src={lotusIcon}
         alt=""
         aria-hidden="true"
-        className="absolute h-40 w-40 object-contain opacity-95 sm:h-48 sm:w-48 lg:h-56 lg:w-56 grayscale invert brightness-200 contrast-200 drop-shadow-md"
+        className="absolute h-[80px] w-[80px] sm:h-[100px] sm:w-[100px] lg:h-[120px] lg:w-[120px] object-contain invert brightness-[10] opacity-100"
         loading="eager"
         decoding="async"
       />
