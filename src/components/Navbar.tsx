@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
-import nkLogoFull from "@/assets/nk-logo-full.jpg";
+import lotusIcon from "@/assets/lotus-icon.png";
 import { Link, useLocation } from "react-router-dom";
 
 import {
@@ -154,15 +154,23 @@ const Navbar = () => {
     </li>
   );
 
-  const LogoImg = () => (
-    <img
-      src={nkLogoFull}
-      alt="NK Global Harmony"
-      className="h-20 sm:h-24 lg:h-28 w-auto object-contain"
-      style={{ filter: "brightness(0) invert(1)" }}
-      loading="eager"
-      decoding="async"
-    />
+  const logoImg = (
+    <span className="relative flex h-24 w-24 items-center justify-center sm:h-28 sm:w-28 lg:h-32 lg:w-32">
+      <img
+        src={lotusIcon}
+        alt=""
+        aria-hidden="true"
+        className="absolute inset-0 h-full w-full object-contain invert brightness-[10] opacity-100"
+        loading="eager"
+        decoding="async"
+      />
+      <span className="relative z-10 flex flex-col items-center leading-none">
+        <span className="font-serif text-lg font-semibold text-primary-foreground sm:text-xl lg:text-2xl">NK</span>
+        <span className="text-[10px] uppercase tracking-[0.2em] text-primary-foreground/70 sm:text-xs">
+          Global Harmony
+        </span>
+      </span>
+    </span>
   );
 
   return (
@@ -171,11 +179,11 @@ const Navbar = () => {
       <div className="container flex flex-col lg:flex-row items-center justify-between py-4">
         {isHome ? (
           <button onClick={() => viewCtx?.setView({ type: "home" })} className="flex items-center mx-auto lg:mx-0">
-            <LogoImg />
+            {logoImg}
           </button>
         ) : (
           <Link to="/" className="flex items-center mx-auto lg:mx-0">
-            <LogoImg />
+            {logoImg}
           </Link>
         )}
 
