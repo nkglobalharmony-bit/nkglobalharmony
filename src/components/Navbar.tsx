@@ -160,7 +160,7 @@ const Navbar = () => {
         src={lotusIcon}
         alt=""
         aria-hidden="true"
-        className="absolute h-20 w-20 object-contain opacity-95 sm:h-24 sm:w-24 lg:h-28 lg:w-28 invert brightness-200 contrast-200 mix-blend-screen drop-shadow-md"
+        className="absolute h-32 w-32 object-contain opacity-95 sm:h-40 sm:w-40 lg:h-48 lg:w-48 invert brightness-200 contrast-200 mix-blend-screen drop-shadow-md"
         loading="eager"
         decoding="async"
       />
