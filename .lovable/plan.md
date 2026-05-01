@@ -1,40 +1,27 @@
+## Sync website to nkglobalharmony.com
 
+Your project is already published and `nkglobalharmony.com` is already connected as a custom domain. The reason recent edits (like the navbar/logo changes) may not be visible at nkglobalharmony.com is that **frontend changes don't auto-deploy** — they require a manual "Update" in the Publish dialog.
 
-## Add Services Dropdown to Navbar
+### Current state
+- Published: yes (public)
+- Lovable URL: https://nkglobalharmony.lovable.app
+- Custom domain: https://nkglobalharmony.com (connected)
 
-### What will be done
+### Steps for you to do (one click, no code change needed)
+1. Click the **Publish** button (top-right of the editor).
+2. In the dialog, click **Update** to push the latest frontend code to production.
+3. Wait ~30–60 seconds, then hard-refresh https://nkglobalharmony.com (Cmd/Ctrl+Shift+R) to bypass the browser cache.
 
-Add a **Services** dropdown menu to the navigation bar (both desktop and mobile) with the following 6 subcategories:
+That's it — the live `.com` site will then match your preview.
 
-1. Brand Building & Consulting
-2. Market Research & Trend Forecasting Services
-3. Product Development & Prototyping Services
-4. Social Media Creatives & E-Commerce Marketing Services
-5. Strategic Management in International Business
-6. Fashion Tech Packs & Management
+### If the domain itself isn't loading correctly
+If nkglobalharmony.com shows an error, blank page, or the wrong site (not just stale content), open **Project Settings → Domains** and check the status of `nkglobalharmony.com`:
+- **Active** = working correctly, just needs an Update click.
+- **Verifying / Setting up** = wait for DNS/SSL to finish.
+- **Offline / Failed / Action required** = DNS needs fixing at your registrar (A record → `185.158.133.1` for both `@` and `www`, plus the `_lovable` TXT record).
 
-### Changes
+Tell me which status you see if it's not Active and I'll walk you through the DNS fix.
 
-**1. Modified: `src/components/Navbar.tsx`**
-- Add a `servicesSubcategories` array with the 6 items above (each with label and slug)
-- Add `"services"` to the `Parent` type union
-- Add a Services `DropdownMenu` in the desktop nav (between Packaging and Request a Quote)
-- Add a `servicesOpen` state for mobile accordion toggle
-- Add Services collapsible section in the mobile nav
-- Dropdown items will link to `/services/:slug` routes
-
-**2. Modified: `src/context/ViewContext.tsx`**
-- Add `"services"` to the `ParentCategory` type
-
-**3. Modified: `src/App.tsx`**
-- Add route `/services/:slug` pointing to `SubcategoryPage` with `parent="services"`
-
-**4. Modified: `src/data/subcategories.ts`**
-- Add services subcategory data entries so the subcategory pages render content for each service
-
-### Technical details
-- Follows the exact same dropdown pattern used for Apparel, Jewellery, Toys & Games, and Packaging
-- Services items use standard `Link` navigation to `/services/:slug` routes
-- Mobile menu uses the same accordion expand/collapse pattern with `ChevronDown` rotation
-- Dropdown has `bg-background`, `border`, `shadow-md`, and `z-50` for proper visibility
-
+### Notes
+- No code changes are required for this task — this is purely a publish/deploy action.
+- Future frontend edits will continue to require clicking **Update** to go live; backend/edge function changes (if you add any) deploy automatically.
